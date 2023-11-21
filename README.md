@@ -9,7 +9,7 @@
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/structure-aware-sparse-view-x-ray-3d/low-dose-x-ray-ct-reconstruction-on-x3d)](https://paperswithcode.com/sota/low-dose-x-ray-ct-reconstruction-on-x3d?p=structure-aware-sparse-view-x-ray-3d)
 
-<h2>Structure-Aware Sparse-View X-ray 3D Reconstruction </h2> 
+<h2> A Toolbox for Sparse-View X-ray 3D Reconstruction </h2> 
 
 
 
