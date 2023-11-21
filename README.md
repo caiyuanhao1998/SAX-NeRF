@@ -28,3 +28,43 @@
 
 ### News
 - **2023.11.21 :** Our paper is on [arxiv](https://arxiv.org/abs/2311.10959) now. We will develop this repo into a baseline for X-ray novel view synthesis and CT reconstruction. Code, models, and data will be released. 💫
+
+### Performance
+
+<details close>
+<summary><b>Novel View Synthesis</b></summary>
+
+![results1](/fig/nvs_1.png)
+
+![results2](/fig/nvs_2.png)
+
+</details>
+
+
+<details close>
+<summary><b>CT Reconstruction</b></summary>
+
+![results3](/fig/ct_1.png)
+
+![results4](/fig/ct_2.png)
+
+</details>
+
+
+This repo will support 8 state-of-the-art algorithms including 5 NeRF-based methods, 2 optimization-based methods, and 1 analytical method for X-ray 3D reconstruction.
+
+<details open>
+<summary><b>Supported algorithms:</b></summary>
+
+* [ ] [SAX-NeRF](https://arxiv.org/abs/2311.10959) (Arxiv 2023)
+* [ ] [TensoRF](https://arxiv.org/abs/2203.09517) (ECCV 2022)
+* [ ] [NAF](https://arxiv.org/abs/2209.14540) (MICCAI 2022)
+* [ ] [NeAT](https://arxiv.org/abs/2202.02171) (ACM TOG 2022)
+* [ ] [NeRF](https://arxiv.org/abs/2003.08934) (ECCV 2020)
+* [ ] [InTomo](https://openaccess.thecvf.com/content/ICCV2021/papers/Zang_IntraTomo_Self-Supervised_Learning-Based_Tomography_via_Sinogram_Synthesis_and_Prediction_ICCV_2021_paper.pdf) (ICCV 2021)
+* [ ] [SART](https://engineering.purdue.edu/RVL/Publications/SART_84.pdf) (Ultrasonic imaging 1984)
+* [ ] [ASD-POCS](https://www.researchgate.net/profile/Emil-Sidky/publication/23169511_Image_reconstruction_in_circular_cone-beam_computed_tomography_by_constrained_total-variation_minimization/links/0c96052408b0814590000000/Image-reconstruction-in-circular-cone-beam-computed-tomography-by-constrained-total-variation-minimization.pdf) (Physics in Medicine & Biology 2008)
+* [ ] [FDK](https://opg.optica.org/josaa/fulltext.cfm?uri=josaa-1-6-612&id=996) (Josa a 1984)
+
+
+</details>
