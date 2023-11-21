@@ -13,13 +13,13 @@
 
 
 
-<img src="3d_demo/backpack.gif" style="height:300px" /> <img src="3d_demo/head.gif" style="height:300px" /> <img src="3d_demo/bonsai.gif" style="height:300px" /> 
+<img src="3d_demo/backpack.gif" style="height:260px" /> <img src="3d_demo/head.gif" style="height:260px" /> <img src="3d_demo/bonsai.gif" style="height:260px" /> 
 
 
 
-<img src="3d_demo/foot.gif" style="height:300px" />  &emsp; &emsp; <img src="3d_demo/carp.gif" style="height:200px" /> <img src="3d_demo/engine.gif" style="height:300px" />
+<img src="3d_demo/foot.gif" style="height:260px" />  &emsp; &emsp; <img src="3d_demo/carp.gif" style="height:200px" /> <img src="3d_demo/engine.gif" style="height:260px" />
 
-<img src="3d_demo/chest.gif" style="height:300px" />  <img src="3d_demo/pelvis.gif" style="height:300px" />  <img src="3d_demo/box.gif" style="height:300px" /> 
+<img src="3d_demo/chest.gif" style="height:260px" />  <img src="3d_demo/pelvis.gif" style="height:260px" />  <img src="3d_demo/box.gif" style="height:260px" /> 
 
 </div>
 
