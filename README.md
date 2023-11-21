@@ -17,7 +17,7 @@
 
 
 
-<img src="3d_demo/foot.gif" style="height:240px" />  &emsp; &emsp; <img src="3d_demo/carp.gif" style="height:170px" /> <img src="3d_demo/engine.gif" style="height:240px" />
+<img src="3d_demo/foot.gif" style="height:230px" />  &emsp; &emsp; <img src="3d_demo/carp.gif" style="height:160px" /> <img src="3d_demo/engine.gif" style="height:230px" />
 
 <img src="3d_demo/chest.gif" style="height:260px" />  <img src="3d_demo/pelvis.gif" style="height:260px" />  <img src="3d_demo/box.gif" style="height:260px" /> 
 
