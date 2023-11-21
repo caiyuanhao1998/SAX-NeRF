@@ -51,7 +51,7 @@
 </details>
 
 
-This repo will support 8 state-of-the-art algorithms including 5 NeRF-based methods, 2 optimization-based methods, and 1 analytical method for X-ray 3D reconstruction.
+This repo will support 8 state-of-the-art algorithms including 5 NeRF-based methods, 2 optimization-based methods, and 1 analytical method for sparse-view X-ray 3D reconstruction.
 
 <details open>
 <summary><b>Supported algorithms:</b></summary>
