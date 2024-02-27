@@ -26,7 +26,7 @@
 &nbsp;
 
 ### News
-- **2024.02.26 :** Our paper has been accepted by CVPR 2024. Code and models will be released. Keep tuning! :tada: :confetti_ball:
+- **2024.02.26 :** Our paper has been accepted by CVPR 2024. Code and models will be released. Stay tuned! :tada: :confetti_ball:
 - **2023.11.21 :** The benchmark of X3D at the [paper-with-code website](https://paperswithcode.com/dataset/x3d) has been set up. You are welcome to make a comparison. 🚀
 - **2023.11.21 :** Our paper is on [arxiv](https://arxiv.org/abs/2311.10959) now. We will develop this repo into a baseline for X-ray novel view synthesis and CT reconstruction. All code, models, data, and training logs will be released. 💫
 
@@ -57,7 +57,7 @@ This repo will support 8 state-of-the-art algorithms including 5 NeRF-based meth
 <details open>
 <summary><b>Supported algorithms:</b></summary>
 
-* [ ] [SAX-NeRF](https://arxiv.org/abs/2311.10959) (Arxiv 2023)
+* [ ] [SAX-NeRF](https://arxiv.org/abs/2311.10959) (CVPR 2024)
 * [ ] [TensoRF](https://arxiv.org/abs/2203.09517) (ECCV 2022)
 * [ ] [NAF](https://arxiv.org/abs/2209.14540) (MICCAI 2022)
 * [ ] [NeAT](https://arxiv.org/abs/2202.02171) (ACM TOG 2022)
