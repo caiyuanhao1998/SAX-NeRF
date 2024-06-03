@@ -27,7 +27,7 @@
 &nbsp;
 
 ### News
-- **2024.06.02 :** Code, pre-trained models, and training logs have been realeased. Feel free to use them.
+- **2024.06.02 :** Data, code, models, and training logs have been realeased. Feel free to use them :)
 - **2024.02.26 :** Our paper has been accepted by CVPR 2024. Code and pre-trained models will be released to the public before the start date of CVPR 2024 (2024.06.19). Stay tuned! :tada: :confetti_ball:
 - **2023.11.21 :** The benchmark of X3D at the [paper-with-code website](https://paperswithcode.com/dataset/x3d) has been set up. You are welcome to make a comparison. 🚀
 - **2023.11.21 :** Our paper is on [arxiv](https://arxiv.org/abs/2311.10959) now. We will develop this repo into a baseline for X-ray novel view synthesis and CT reconstruction. All code, models, data, and training logs will be released. 💫
