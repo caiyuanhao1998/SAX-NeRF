@@ -1,0 +1,32 @@
+exp:
+  expname: bonsai_50
+  expdir: ./logs/nerf/
+  datadir: ./data/bonsai_50.pickle
+network:
+  net_type: mlp
+  num_layers: 8
+  hidden_dim: 256
+  skips: [4]
+  out_dim: 1
+  last_activation: relu
+  bound: 0.3
+encoder:
+  encoding: frequency
+  multires: 6
+render:
+  n_samples: 192
+  n_fine: 192
+  perturb: True
+  raw_noise_std: 0.
+  netchunk: 409600
+train:
+  epoch: 3000
+  n_batch: 1
+  n_rays: 1024
+  lrate: 0.001
+  lrate_gamma: 0.1
+  lrate_step: 1500
+  resume: False
+log:
+  i_eval: 250  # Epoch for evaluation
+  i_save: 500  # Epoch for saving

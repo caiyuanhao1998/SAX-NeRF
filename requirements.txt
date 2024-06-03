@@ -1,0 +1,12 @@
+ninja==1.11.1
+opencv-python==4.7.0.68
+tensorboard==2.12.0
+tqdm==4.64.1
+matplotlib==3.7.0
+scipy==1.10.0
+argparse==1.4.0
+PyYAML==6.0
+scikit-image==0.19.3
+imageio==2.25.1
+Pillow==9.5.0
+fvcore

@@ -1,0 +1,37 @@
+exp:
+  expname: chest_50
+  expdir: ./logs/nerf/
+  datadir: ./data/chest_50.pickle
+network:
+  net_type: mlp
+  num_layers: 8
+  hidden_dim: 256
+  skips: [4]
+  out_dim: 1
+  last_activation: relu
+  bound: 0.3
+encoder:
+  encoding: hashgrid
+  input_dim: 3
+  num_levels: 16
+  level_dim: 2
+  base_resolution: 16
+  log2_hashmap_size: 19
+render:
+  n_samples: 192
+  n_fine: 192
+  perturb: True
+  raw_noise_std: 0.
+  netchunk: 409600
+train:
+  epoch: 1500
+  n_batch: 1
+  n_rays: 1024
+  lrate: 0.001
+  lrate_gamma: 0.1
+  lrate_step: 1500
+  resume: False
+  proj_num: 10
+log:
+  i_eval: 250  # Epoch for evaluation
+  i_save: 500  # Epoch for saving

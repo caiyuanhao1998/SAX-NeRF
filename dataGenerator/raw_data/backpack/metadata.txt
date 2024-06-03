@@ -1,0 +1,13 @@
+NRRD0004
+# Complete NRRD file format specification at:
+# http://teem.sourceforge.net/nrrd/format.html
+type: uint16
+dimension: 3
+space: left-posterior-superior
+sizes: 512 512 373
+space directions: (0.9766,0,0) (0,0.9766,0) (0,0,1.25)
+kinds: domain domain domain
+endian: little
+encoding: raw
+space origin: (-250.0096,-250.0096,-233.125)
+data file: backpack_512x512x373_uint16.raw

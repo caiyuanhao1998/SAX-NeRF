@@ -27,6 +27,7 @@
 &nbsp;
 
 ### News
+- **2024.06.02 :** Code, pre-trained models, and training logs have been realeased. Feel free to use them.
 - **2024.02.26 :** Our paper has been accepted by CVPR 2024. Code and pre-trained models will be released to the public before the start date of CVPR 2024 (2024.06.19). Stay tuned! :tada: :confetti_ball:
 - **2023.11.21 :** The benchmark of X3D at the [paper-with-code website](https://paperswithcode.com/dataset/x3d) has been set up. You are welcome to make a comparison. 🚀
 - **2023.11.21 :** Our paper is on [arxiv](https://arxiv.org/abs/2311.10959) now. We will develop this repo into a baseline for X-ray novel view synthesis and CT reconstruction. All code, models, data, and training logs will be released. 💫
@@ -58,15 +59,120 @@ This repo will support 8 state-of-the-art algorithms including 5 NeRF-based meth
 <details open>
 <summary><b>Supported algorithms:</b></summary>
 
-* [ ] [SAX-NeRF](https://arxiv.org/abs/2311.10959) (CVPR 2024)
-* [ ] [TensoRF](https://arxiv.org/abs/2203.09517) (ECCV 2022)
-* [ ] [NAF](https://arxiv.org/abs/2209.14540) (MICCAI 2022)
-* [ ] [NeAT](https://arxiv.org/abs/2202.02171) (ACM TOG 2022)
-* [ ] [NeRF](https://arxiv.org/abs/2003.08934) (ECCV 2020)
-* [ ] [InTomo](https://openaccess.thecvf.com/content/ICCV2021/papers/Zang_IntraTomo_Self-Supervised_Learning-Based_Tomography_via_Sinogram_Synthesis_and_Prediction_ICCV_2021_paper.pdf) (ICCV 2021)
+* [x] [SAX-NeRF](https://arxiv.org/abs/2311.10959) (CVPR 2024)
+* [x] [TensoRF](https://arxiv.org/abs/2203.09517) (ECCV 2022)
+* [x] [NAF](https://arxiv.org/abs/2209.14540) (MICCAI 2022)
+* [x] [NeAT](https://arxiv.org/abs/2202.02171) (ACM TOG 2022)
+* [x] [NeRF](https://arxiv.org/abs/2003.08934) (ECCV 2020)
+* [x] [InTomo](https://openaccess.thecvf.com/content/ICCV2021/papers/Zang_IntraTomo_Self-Supervised_Learning-Based_Tomography_via_Sinogram_Synthesis_and_Prediction_ICCV_2021_paper.pdf) (ICCV 2021)
 * [ ] [SART](https://engineering.purdue.edu/RVL/Publications/SART_84.pdf) (Ultrasonic imaging 1984)
 * [ ] [ASD-POCS](https://www.researchgate.net/profile/Emil-Sidky/publication/23169511_Image_reconstruction_in_circular_cone-beam_computed_tomography_by_constrained_total-variation_minimization/links/0c96052408b0814590000000/Image-reconstruction-in-circular-cone-beam-computed-tomography-by-constrained-total-variation-minimization.pdf) (Physics in Medicine & Biology 2008)
 * [ ] [FDK](https://opg.optica.org/josaa/fulltext.cfm?uri=josaa-1-6-612&id=996) (Josa a 1984)
 
-
 </details>
+
+&nbsp;
+
+## 1. Create Environment:
+
+We recommend using [Conda](https://docs.conda.io/en/latest/miniconda.html) to set up an environment.
+
+``` sh
+# Create environment
+conda create -n naf python=3.9
+conda activate naf
+
+# Install pytorch (hash encoder requires CUDA v11.3)
+pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --extra-index-url https://download.pytorch.org/whl/cu113
+
+# Install other packages
+pip install -r requirements.txt
+```
+
+## 2. Prepare Dataset:
+
+Download our processed datasets from [Google drive](https://drive.google.com/drive/folders/1SlneuSGkhk0nvwPjxxnpBCO59XhjGGJX?usp=sharing) or Baidu disk. Then put the downloaded datasets into the folder `data/` as
+
+```sh
+  |--data
+      |--chest_50.pickle
+      |--abdomen_50.pickle
+      |--aneurism_50.pickle
+      |--backpack_50.pickle
+      |--bonsai_50.pickle
+      |--box_50.pickle
+      |--carp_50.pickle
+      |--engine_50.pickle
+      |--foot_50.pickle
+      |--head_50.pickle
+      |--leg_50.pickle
+      |--pancreas_50.pickle
+      |--pelvis_50.pickle
+      |--teapot_50.pickle
+      |--jaw_50.pickle
+```
+
+## 3. Testing:
+
+You can directly download our pre-trained models from [Google drive](https://drive.google.com/drive/folders/1wlDrZQRbQENcfW1Pjrr1gasFQ8v6znHV?usp=sharing) or Baidu disk. Then put the downloaded models into the folder `pretrained/` and run
+
+```sh
+# SAX-NeRF
+python test.py --method Lineformer --category chest --config config/Lineformer/chest_50.yaml --weights pretrained/chest.tar --output_path output 
+```
+
+## 4. Training:
+
+We provide the training logs on all scenes for your convenience to debug. Please download the training logs from [Google dive](https://drive.google.com/drive/folders/123WISBBc3rjfKqZ1EGK0-2sW5TY5dkLI?usp=sharing) of Baidu disk.
+
+```sh
+# SAX-NeRF
+python train_mlg.py --config config/Lineformer/chest_50.yaml
+
+# NeRF
+python train.py --config config/nerf/chest_50.yaml
+
+# Intratomo
+python train.py --config config/intratomo/chest_50.yaml
+
+# naf
+python train.py --config config/naf/chest_50.yaml
+
+# tensorf
+python train.py --config config/tensorf/chest_50.yaml
+```
+
+## 5. Visualization
+
+To render a cool demo, we provide visualization code in the folder `3D_vis`
+
+```sh
+cd 3D_vis
+python 3D_vis_backpack.py
+python 3D_vis_backpack_gif.py
+```
+
+## 6. Generate Your Own Data
+We also provide code for data generation in the folder `dataGenerator`. Firstly, you need to install the [TIGRE](https://github.com/CERN/TIGRE) toolbox. To give a quick start, we provide a raw data for your debugging. Please down load the raw data from [Google dive](https://drive.google.com/drive/folders/1i3BhyftggTj1SqW6Ibl5tWTWD0VLc7ex?usp=sharing) or Baidu disk and then put it into the folder `dataGenerator/raw_data`. Run
+
+```sh
+cd dataGenerator
+python data_vis_backpack.py
+cd ..
+python generateData_backpack.py
+```
+
+## 7. Citation
+## 6. Citation
+If this repo helps you, please consider citing our works:
+
+
+```sh
+
+@inproceedings{sax_nerf,
+  title={Structure-Aware Sparse-View X-ray 3D Reconstruction},
+  author={Yuanhao Cai and Jiahao Wang and Alan Yuille and Zongwei Zhou and Angtian Wang},
+  booktitle={CVPR},
+  year={2024}
+}
+```
