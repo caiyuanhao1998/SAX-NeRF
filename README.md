@@ -65,9 +65,9 @@ This repo will support 8 state-of-the-art algorithms including 5 NeRF-based meth
 * [x] [NeAT](https://arxiv.org/abs/2202.02171) (ACM TOG 2022)
 * [x] [NeRF](https://arxiv.org/abs/2003.08934) (ECCV 2020)
 * [x] [InTomo](https://openaccess.thecvf.com/content/ICCV2021/papers/Zang_IntraTomo_Self-Supervised_Learning-Based_Tomography_via_Sinogram_Synthesis_and_Prediction_ICCV_2021_paper.pdf) (ICCV 2021)
-* [ ] [SART](https://engineering.purdue.edu/RVL/Publications/SART_84.pdf) (Ultrasonic imaging 1984)
-* [ ] [ASD-POCS](https://www.researchgate.net/profile/Emil-Sidky/publication/23169511_Image_reconstruction_in_circular_cone-beam_computed_tomography_by_constrained_total-variation_minimization/links/0c96052408b0814590000000/Image-reconstruction-in-circular-cone-beam-computed-tomography-by-constrained-total-variation-minimization.pdf) (Physics in Medicine & Biology 2008)
-* [ ] [FDK](https://opg.optica.org/josaa/fulltext.cfm?uri=josaa-1-6-612&id=996) (Josa a 1984)
+* [x] [SART](https://engineering.purdue.edu/RVL/Publications/SART_84.pdf) (Ultrasonic imaging 1984)
+* [x] [ASD-POCS](https://www.researchgate.net/profile/Emil-Sidky/publication/23169511_Image_reconstruction_in_circular_cone-beam_computed_tomography_by_constrained_total-variation_minimization/links/0c96052408b0814590000000/Image-reconstruction-in-circular-cone-beam-computed-tomography-by-constrained-total-variation-minimization.pdf) (Physics in Medicine & Biology 2008)
+* [x] [FDK](https://opg.optica.org/josaa/fulltext.cfm?uri=josaa-1-6-612&id=996) (Josa a 1984)
 
 </details>
 
@@ -79,14 +79,28 @@ We recommend using [Conda](https://docs.conda.io/en/latest/miniconda.html) to se
 
 ``` sh
 # Create environment
-conda create -n naf python=3.9
-conda activate naf
+conda create -n sax_nerf python=3.9
+conda activate sax_nerf
 
 # Install pytorch (hash encoder requires CUDA v11.3)
 pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --extra-index-url https://download.pytorch.org/whl/cu113
 
 # Install other packages
 pip install -r requirements.txt
+```
+
+We suggest you install TIGRE toolbox (2.3 version) for executing traditional CT reconstruction methods and synthesize your own CT data if you plan to do so. Please note that TIGRE v2.5 might stuck when CT resolution is large.
+``` sh
+# Download TIGRE
+wget https://github.com/CERN/TIGRE/archive/refs/tags/v2.3.zip
+unzip v2.3.zip
+rm v2.3.zip
+
+# Install TIGRE
+pip install cython==0.29.25
+pip install numpy==1.21.6
+cd TIGRE-2.3/Python/
+python setup.py develop
 ```
 
 &nbsp;
@@ -123,6 +137,15 @@ You can directly download our pre-trained models from [Google drive](https://dri
 ```sh
 # SAX-NeRF
 python test.py --method Lineformer --category chest --config config/Lineformer/chest_50.yaml --weights pretrained/chest.tar --output_path output 
+
+# FDK
+python3 eval_traditional.py --algorithm fdk --category chest --config config/FDK/chest_50.yaml
+
+# SART
+python3 eval_traditional.py --algorithm sart --category chest --config config/SART/chest_50.yaml
+
+# ASD_POCS
+python3 eval_traditional.py --algorithm asd_pocs --category chest --config config/ASD_POCS/chest_50.yaml
 ```
 
 &nbsp;
@@ -141,10 +164,10 @@ python train.py --config config/nerf/chest_50.yaml
 # Intratomo
 python train.py --config config/intratomo/chest_50.yaml
 
-# naf
+# NAF
 python train.py --config config/naf/chest_50.yaml
 
-# tensorf
+# TensoRF
 python train.py --config config/tensorf/chest_50.yaml
 ```
 
@@ -179,7 +202,6 @@ If this repo helps you, please consider citing our works:
 
 
 ```sh
-
 @inproceedings{sax_nerf,
   title={Structure-Aware Sparse-View X-ray 3D Reconstruction},
   author={Yuanhao Cai and Jiahao Wang and Alan Yuille and Zongwei Zhou and Angtian Wang},

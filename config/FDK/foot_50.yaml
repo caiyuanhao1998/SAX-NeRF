@@ -1,0 +1,36 @@
+exp:
+  expname: foot_50
+  expdir: ./logs/FDK/
+  datadir: ./data/foot_50.pickle
+network:
+  net_type: mlp
+  num_layers: 4
+  hidden_dim: 32
+  skips: [2]
+  out_dim: 1
+  last_activation: sigmoid
+  bound: 0.3
+encoder:
+  encoding: hashgrid
+  input_dim: 3
+  num_levels: 16
+  level_dim: 2
+  base_resolution: 16
+  log2_hashmap_size: 19
+render:
+  n_samples: 320
+  n_fine: 0
+  perturb: True
+  raw_noise_std: 0.
+  netchunk: 409600
+train:
+  epoch: 3000
+  n_batch: 1
+  n_rays: 1024
+  lrate: 0.001
+  lrate_gamma: 0.1
+  lrate_step: 1500
+  resume: False
+log:
+  i_eval: 250  # Epoch for evaluation
+  i_save: 500  # Epoch for saving
