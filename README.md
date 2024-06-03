@@ -193,7 +193,7 @@ python 3D_vis_backpack_gif.py
 &nbsp;
 
 ## 6. Generate Your Own Data
-We also provide code for data generation in the folder `dataGenerator`. Firstly, you need to install the [TIGRE](https://github.com/CERN/TIGRE) toolbox. To give a quick start, we provide a raw data for your debugging. Please down load the raw data from [Google dive](https://drive.google.com/drive/folders/1i3BhyftggTj1SqW6Ibl5tWTWD0VLc7ex?usp=sharing) or Baidu disk and then put it into the folder `dataGenerator/raw_data`. Run
+We also provide code for data generation in the folder `dataGenerator`. To give you a quick start, we provide a raw data (backpack) for your debugging. Please download the raw data from [Google dive](https://drive.google.com/drive/folders/1i3BhyftggTj1SqW6Ibl5tWTWD0VLc7ex?usp=sharing) or Baidu disk and then put it into the folder `dataGenerator/raw_data`. Run
 
 ```sh
 cd dataGenerator
