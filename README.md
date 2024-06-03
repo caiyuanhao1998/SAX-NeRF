@@ -26,7 +26,13 @@
 
 &nbsp;
 
+### Introduction
+This is a baseline and toolbox for X-ray novel view synthesis (NVS) and computed tomography (CT) reconstruction. This repo supports 9 state-of-the-art algorithms including 6 NeRF-based methods, 2 optimization-based methods, and 1 analytical method. We also provide code for fancy visualization and data generation to help your research. If you find this repo useful, please give it a star ⭐ and consider citing our paper in your research. Thank you.
+
+
 ### News
+- **2024.06.03 :** Code for traditional methods has been released. 🚀
+- **2024.06.03 :** Code for fancy visualization and data generation has been released. 🚀
 - **2024.06.02 :** Data, code, models, and training logs have been realeased. Feel free to use them :)
 - **2024.02.26 :** Our paper has been accepted by CVPR 2024. Code and pre-trained models will be released to the public before the start date of CVPR 2024 (2024.06.19). Stay tuned! :tada: :confetti_ball:
 - **2023.11.21 :** The benchmark of X3D at the [paper-with-code website](https://paperswithcode.com/dataset/x3d) has been set up. You are welcome to make a comparison. 🚀
@@ -54,7 +60,6 @@
 </details>
 
 
-This repo will support 8 state-of-the-art algorithms including 5 NeRF-based methods, 2 optimization-based methods, and 1 analytical method for sparse-view X-ray 3D reconstruction.
 
 <details open>
 <summary><b>Supported algorithms:</b></summary>
