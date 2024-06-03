@@ -89,6 +89,8 @@ pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --e
 pip install -r requirements.txt
 ```
 
+&nbsp;
+
 ## 2. Prepare Dataset:
 
 Download our processed datasets from [Google drive](https://drive.google.com/drive/folders/1SlneuSGkhk0nvwPjxxnpBCO59XhjGGJX?usp=sharing) or Baidu disk. Then put the downloaded datasets into the folder `data/` as
@@ -112,6 +114,8 @@ Download our processed datasets from [Google drive](https://drive.google.com/dri
       |--jaw_50.pickle
 ```
 
+&nbsp;
+
 ## 3. Testing:
 
 You can directly download our pre-trained models from [Google drive](https://drive.google.com/drive/folders/1wlDrZQRbQENcfW1Pjrr1gasFQ8v6znHV?usp=sharing) or Baidu disk. Then put the downloaded models into the folder `pretrained/` and run
@@ -120,6 +124,8 @@ You can directly download our pre-trained models from [Google drive](https://dri
 # SAX-NeRF
 python test.py --method Lineformer --category chest --config config/Lineformer/chest_50.yaml --weights pretrained/chest.tar --output_path output 
 ```
+
+&nbsp;
 
 ## 4. Training:
 
@@ -142,6 +148,8 @@ python train.py --config config/naf/chest_50.yaml
 python train.py --config config/tensorf/chest_50.yaml
 ```
 
+&nbsp;
+
 ## 5. Visualization
 
 To render a cool demo, we provide visualization code in the folder `3D_vis`
@@ -152,6 +160,8 @@ python 3D_vis_backpack.py
 python 3D_vis_backpack_gif.py
 ```
 
+&nbsp;
+
 ## 6. Generate Your Own Data
 We also provide code for data generation in the folder `dataGenerator`. Firstly, you need to install the [TIGRE](https://github.com/CERN/TIGRE) toolbox. To give a quick start, we provide a raw data for your debugging. Please down load the raw data from [Google dive](https://drive.google.com/drive/folders/1i3BhyftggTj1SqW6Ibl5tWTWD0VLc7ex?usp=sharing) or Baidu disk and then put it into the folder `dataGenerator/raw_data`. Run
 
@@ -161,6 +171,8 @@ python data_vis_backpack.py
 cd ..
 python generateData_backpack.py
 ```
+
+&nbsp;
 
 ## 7. Citation
 If this repo helps you, please consider citing our works:
