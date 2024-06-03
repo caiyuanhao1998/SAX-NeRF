@@ -163,7 +163,6 @@ python generateData_backpack.py
 ```
 
 ## 7. Citation
-## 6. Citation
 If this repo helps you, please consider citing our works:
 
 
