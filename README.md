@@ -171,6 +171,8 @@ python train.py --config config/naf/chest_50.yaml
 python train.py --config config/tensorf/chest_50.yaml
 ```
 
+You can use [this repo](https://github.com/darglein/NeAT) to run NeAT. Remember to reprocess the data first.
+
 &nbsp;
 
 ## 5. Visualization
