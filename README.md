@@ -157,7 +157,7 @@ python3 eval_traditional.py --algorithm asd_pocs --category chest --config confi
 
 ## 4. Training:
 
-We provide the training logs on all scenes for your convenience to debug. Please download the training logs from [Google dive](https://drive.google.com/drive/folders/123WISBBc3rjfKqZ1EGK0-2sW5TY5dkLI?usp=sharing) of Baidu disk.
+We provide the training logs on all scenes for your convenience to debug. Please download the training logs from [Google dive](https://drive.google.com/drive/folders/123WISBBc3rjfKqZ1EGK0-2sW5TY5dkLI?usp=sharing) or Baidu disk.
 
 ```sh
 # SAX-NeRF
