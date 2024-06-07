@@ -77,6 +77,12 @@ This is a toolbox for X-ray novel view synthesis (NVS) and computed tomography (
 
 </details>
 
+
+### Coordinate System
+<div align="center">
+<p align="center"> <img src="fig/coordinate_system.png" width="800px"> </p>
+</div>
+
 &nbsp;
 
 ## 1. Create Environment:
