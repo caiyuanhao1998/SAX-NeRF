@@ -80,7 +80,7 @@ This is a toolbox for X-ray novel view synthesis (NVS) and computed tomography (
 
 ### Coordinate System
 
-The coordinate system in circular cone-beam X-ray scanning follows the OpenCV standards. The transformation between the camera, world, and image coordinate systems are shown below.
+The coordinate system in circular cone-beam X-ray scanning follows the OpenCV standards. The transformation between the camera, world, and image coordinate systems is shown below.
 <div align="center">
 <p align="center"> <img src="fig/coordinate_system.png" width="800px"> </p>
 </div>
