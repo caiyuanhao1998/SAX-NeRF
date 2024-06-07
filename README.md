@@ -121,7 +121,7 @@ python setup.py develop
 
 ## 2. Prepare Dataset:
 
-Download our processed datasets from [Google drive](https://drive.google.com/drive/folders/1SlneuSGkhk0nvwPjxxnpBCO59XhjGGJX?usp=sharing) or Baidu disk. Then put the downloaded datasets into the folder `data/` as
+Download our processed datasets from [Google drive](https://drive.google.com/drive/folders/1SlneuSGkhk0nvwPjxxnpBCO59XhjGGJX?usp=sharing) or [Baidu disk](https://pan.baidu.com/s/18zc6jHeNvoUNAF6pUaL9eQ?pwd=cyh2). Then put the downloaded datasets into the folder `data/` as
 
 ```sh
   |--data
@@ -146,7 +146,7 @@ Download our processed datasets from [Google drive](https://drive.google.com/dri
 
 ## 3. Testing:
 
-You can directly download our pre-trained models from [Google drive](https://drive.google.com/drive/folders/1wlDrZQRbQENcfW1Pjrr1gasFQ8v6znHV?usp=sharing) or Baidu disk. Then put the downloaded models into the folder `pretrained/` and run
+You can directly download our pre-trained models from [Google drive](https://drive.google.com/drive/folders/1wlDrZQRbQENcfW1Pjrr1gasFQ8v6znHV?usp=sharing) or [Baidu disk](https://pan.baidu.com/s/1FlQJQRYJ7ApjCrxcTrF5mQ?pwd=cyh2). Then put the downloaded models into the folder `pretrained/` and run
 
 ```sh
 # SAX-NeRF
@@ -161,12 +161,13 @@ python3 eval_traditional.py --algorithm sart --category chest --config config/SA
 # ASD_POCS
 python3 eval_traditional.py --algorithm asd_pocs --category chest --config config/ASD_POCS/chest_50.yaml
 ```
+For your convenience, we provide the reconstructed results in [Google drive](https://drive.google.com/drive/folders/1kKGHRrabdbKQeKBLxK5tj8VqVipEvOW5?usp=sharing) and [Baidu disk](https://pan.baidu.com/s/1_S9BRTthsf7y96cBIWTJmw?pwd=cyh2).
 
 &nbsp;
 
 ## 4. Training:
 
-We provide the training logs on all scenes for your convenience to debug. Please download the training logs from [Google dive](https://drive.google.com/drive/folders/123WISBBc3rjfKqZ1EGK0-2sW5TY5dkLI?usp=sharing) or Baidu disk.
+We provide the training logs on all scenes for your convenience to debug. Please download the training logs from [Google dive](https://drive.google.com/drive/folders/123WISBBc3rjfKqZ1EGK0-2sW5TY5dkLI?usp=sharing) or [Baidu disk](https://pan.baidu.com/s/18NP2R215cU3op4mI3bQqug?pwd=cyh2).
 
 ```sh
 # SAX-NeRF
@@ -202,7 +203,7 @@ python 3D_vis_backpack_gif.py
 &nbsp;
 
 ## 6. Generate Your Own Data
-We also provide code for data generation in the folder `dataGenerator`. To give you a quick start, we provide a raw data (backpack) for your debugging. Please download the raw data from [Google dive](https://drive.google.com/drive/folders/1i3BhyftggTj1SqW6Ibl5tWTWD0VLc7ex?usp=sharing) or Baidu disk and then put it into the folder `dataGenerator/raw_data`. Run
+We also provide code for data generation in the folder `dataGenerator`. To give you a quick start, we provide a raw data (backpack) for your debugging. Please download the raw data from [Google dive](https://drive.google.com/drive/folders/1i3BhyftggTj1SqW6Ibl5tWTWD0VLc7ex?usp=sharing) or [Baidu disk](https://pan.baidu.com/s/19mgQFBtDdfhjY4kkRGOmow?pwd=cyh2) and then put it into the folder `dataGenerator/raw_data`. Run
 
 ```sh
 cd dataGenerator
