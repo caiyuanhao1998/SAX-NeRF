@@ -209,7 +209,7 @@ We also provide code for data generation in the folder `dataGenerator`. To give 
 cd dataGenerator
 python data_vis_backpack.py
 cd ..
-python generateData_backpack.py
+python dataGenerator/generateData_backpack.py
 ```
 
 &nbsp;
