@@ -1,0 +1,13 @@
+NRRD0004
+# Complete NRRD file format specification at:
+# http://teem.sourceforge.net/nrrd/format.html
+type: uint16
+dimension: 3
+space: left-posterior-superior
+sizes: 256 256 512
+space directions: (0.78125,0,0) (0,0.390625,0) (0,0,1)
+kinds: domain domain domain
+endian: little
+encoding: raw
+space origin: (-100.0,-50.0,-256.0)
+data file: carp_256x256x512_uint16.raw

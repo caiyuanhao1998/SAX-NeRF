@@ -1,0 +1,57 @@
+# Parameters to setup CT simulation.
+
+# dataset
+numTrain: 50
+numVal: 50
+
+# System configuration
+DSD: 1500.0  # Distance Source Detector      (mm)
+DSO: 1000.0  # Distance Source Origin        (mm)
+
+# Detector parameters
+nDetector: # Number of pixels              (px)
+- 1024
+- 1024 
+dDetector: # Size of each pixel            (mm)
+- 1.0
+- 1.0
+
+# Image parameters
+nVoxel: # Number of voxels              (vx)
+- 512
+- 512
+- 174
+dVoxel: # size of each voxel            (mm)          # (0.8398,0,0) (0,0.8398,0) (0,0,3.2)
+- 0.8398
+- 0.8398
+- 3.2
+
+# Offsets
+offOrigin: # Offset of image from origin   (mm)
+- 0 # x direction
+- 0 # y direction
+- 0 # z direction
+offDetector: # Offset of Detector (only in two direction)            (mm)
+- 0 # u direction
+- 0 # v direction
+
+# Auxiliary
+accuracy: 0.5 # Accuracy of FWD proj          (vx/sample)
+
+# Mode
+mode: cone # X-ray source mode parallel/cone
+filter: null
+
+# Angles
+totalAngle: 180.0 # Total angle  (degree)
+startAngle: 0.0 # Start angle (degree)
+randomAngle: False
+
+# CT
+convert: True
+rescale_slope: 1.0
+rescale_intercept: 0.0
+normalize: True
+
+# Noise
+noise: 0

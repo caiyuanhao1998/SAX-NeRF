@@ -1,0 +1,13 @@
+NRRD0004
+# Complete NRRD file format specification at:
+# http://teem.sourceforge.net/nrrd/format.html
+type: int16
+dimension: 3
+space: left-posterior-superior
+sizes: 240 512 512
+space directions: (1.16,0,0) (0,1.0,0) (0,0,1.0)
+kinds: domain domain domain
+endian: little
+encoding: raw
+space origin: (-139.2,-256.0,-256.0)
+data file: pancreas_240x512x512_int16.raw

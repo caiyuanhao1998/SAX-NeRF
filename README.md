@@ -31,6 +31,8 @@ This is a toolbox for X-ray novel view synthesis (NVS) and computed tomography (
 
 
 ### News
+- **2024.06.16 :** I will present this work in person. Our poster session is from 10:30 am to 00:30 pm, Jun 20 at Arch 4A-E Poster #147. Welcome to chat with me in Seattle Convention Center. :satisfied:
+- **2024.06.16 :** More raw data and generation samples are provided. Feel free to use them. 
 - **2024.06.03 :** Code for traditional methods has been released. 🚀
 - **2024.06.03 :** Code for fancy visualization and data generation has been released. 🚀
 - **2024.06.02 :** Data, code, models, and training logs have been released. Feel free to use them :)
@@ -203,7 +205,7 @@ python 3D_vis_backpack_gif.py
 &nbsp;
 
 ## 6. Generate Your Own Data
-We also provide code for data generation in the folder `dataGenerator`. To give you a quick start, we provide a raw data (backpack) for your debugging. Please download the raw data from [Google dive](https://drive.google.com/drive/folders/1i3BhyftggTj1SqW6Ibl5tWTWD0VLc7ex?usp=sharing) or [Baidu disk](https://pan.baidu.com/s/19mgQFBtDdfhjY4kkRGOmow?pwd=cyh2) and then put it into the folder `dataGenerator/raw_data`. Run
+We also provide code for data generation in the folder `dataGenerator`. To give you a quick start, we provide the raw data for your debugging. Please download the raw data from [Google dive](https://drive.google.com/drive/folders/1i3BhyftggTj1SqW6Ibl5tWTWD0VLc7ex?usp=sharing) or [Baidu disk](https://pan.baidu.com/s/19mgQFBtDdfhjY4kkRGOmow?pwd=cyh2) and then put them into the folder `dataGenerator/raw_data`. Run
 
 ```sh
 cd dataGenerator

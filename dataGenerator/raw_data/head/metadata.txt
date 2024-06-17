@@ -1,0 +1,13 @@
+NRRD0004
+# Complete NRRD file format specification at:
+# http://teem.sourceforge.net/nrrd/format.html
+type: uint8
+dimension: 3
+space: left-posterior-superior
+sizes: 128 256 256
+space directions: (1.57774,0,0) (0,0.995861,0) (0,0,1.00797)
+kinds: domain domain domain
+endian: little
+encoding: raw
+space origin: (-100.97536,-127.470208,-129.02016)
+data file: vis_male_128x256x256_uint8.raw
