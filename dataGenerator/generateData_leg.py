@@ -44,7 +44,7 @@ def main():
     outputName = args.outputName
     outputFolder = args.outputFolder
     matPath = f"./dataGenerator/{dataFolder}/{dataType}/img.mat"
-    configPath = f"./dataGenerator/{dataFolder}/{dataType}/config.yml"
+    configPath = f"./dataGenerator/{dataFolder}/{dataType}/config_4dz.yml"
     outputPath = osp.join(outputFolder, f"{outputName}.pickle")
     generator(matPath, configPath, outputPath, dataFolder, dataType, True)
 
