@@ -223,10 +223,19 @@ If this repo helps you, please consider citing our works:
 
 
 ```sh
+# SAX-NeRF
 @inproceedings{sax_nerf,
   title={Structure-Aware Sparse-View X-ray 3D Reconstruction},
   author={Yuanhao Cai and Jiahao Wang and Alan Yuille and Zongwei Zhou and Angtian Wang},
   booktitle={CVPR},
+  year={2024}
+}
+
+# X-Gaussian
+@inproceedings{x_gaussian,
+  title={Radiative gaussian splatting for efficient x-ray novel view synthesis},
+  author={Yuanhao Cai and Yixun Liang and Jiahao Wang and Angtian Wang and Yulun Zhang and Xiaokang Yang and Zongwei Zhou and Alan Yuille},
+  booktitle={ECCV},
   year={2024}
 }
 ```
