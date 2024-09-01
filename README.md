@@ -28,7 +28,7 @@
 &nbsp;
 
 ### Introduction
-This is a toolbox for X-ray novel view synthesis (NVS) and computed tomography (CT) reconstruction. This repo supports 9 state-of-the-art algorithms including 6 NeRF-based methods, 2 optimization-based methods, and 1 analytical method. We also provide code for fancy visualization and data generation to help your research. If you find this repo useful, please give it a star ⭐ and consider citing our paper. Thank you.
+This is a toolbox for X-ray novel view synthesis (NVS) and computed tomography (CT) reconstruction. This repo supports 10 state-of-the-art algorithms including 6 NeRF-based methods, 2 optimization-based methods, and 1 analytical method. We also provide code for fancy visualization and data generation to help your research. If you find this repo useful, please give it a star ⭐ and consider citing our paper. Thank you.
 
 
 ### News
