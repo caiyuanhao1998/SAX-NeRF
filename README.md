@@ -70,6 +70,7 @@ This is a toolbox for X-ray novel view synthesis (NVS) and computed tomography (
 <summary><b>Supported algorithms:</b></summary>
 
 * [x] [SAX-NeRF](https://arxiv.org/abs/2311.10959) (CVPR 2024)
+* [x] [X-Gaussian](https://arxiv.org/abs/2403.04116) (ECCV 2024)
 * [x] [TensoRF](https://arxiv.org/abs/2203.09517) (ECCV 2022)
 * [x] [NAF](https://arxiv.org/abs/2209.14540) (MICCAI 2022)
 * [x] [NeAT](https://arxiv.org/abs/2202.02171) (ACM TOG 2022)
