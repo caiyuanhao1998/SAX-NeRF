@@ -32,6 +32,7 @@ This is a toolbox for X-ray novel view synthesis (NVS) and computed tomography (
 
 
 ### News
+- **2024.09.01 :** Code of our ECCV work [X-Gaussian](https://github.com/caiyuanhao1998/X-Gaussian/) has been released. Welcome to have a try! 🚀
 - **2024.07.09 :** Our SAX-NeRF has been added to the [Awesome-Transformer-Attention](https://github.com/cmhungsteve/Awesome-Transformer-Attention/blob/main/README_2.md) collection 💫
 - **2024.06.16 :** I will present this work in person. Our poster session is from 10:30 am to 00:30 pm, Jun 20 at Arch 4A-E Poster #147. Welcome to chat with me in Seattle Convention Center. :satisfied:
 - **2024.06.16 :** More raw data and generation samples are provided. Feel free to use them. 
