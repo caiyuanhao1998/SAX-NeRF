@@ -28,10 +28,11 @@
 &nbsp;
 
 ### Introduction
-This is a toolbox for X-ray novel view synthesis (NVS) and computed tomography (CT) reconstruction. This repo supports 10 state-of-the-art algorithms including 6 NeRF-based methods, 2 optimization-based methods, and 1 analytical method. We also provide code for fancy visualization and data generation to help your research. If you find this repo useful, please give it a star ⭐ and consider citing our paper. Thank you.
+This is a toolbox for X-ray novel view synthesis (NVS) and computed tomography (CT) reconstruction. This repo supports 11 state-of-the-art algorithms including six NeRF-based methods, two 3DGS-based methods, two optimization-based methods, and one analytical method. We also provide code for fancy visualization and data generation to help your research. If you find this repo useful, please give it a star ⭐ and consider citing our paper. Thank you.
 
 
 ### News
+- **2024.09.25 :** Our new work [R2-Gaussian](https://arxiv.org/abs/2405.20693v1) has been accepted by NeurIPS 2024. Congrats to [Ruyi](https://ruyi-zha.github.io/). Code and model will be released at [this repo](https://github.com/Ruyi-Zha/r2_gaussian). 💫 
 - **2024.09.01 :** Code of our ECCV 2024 work [X-Gaussian](https://github.com/caiyuanhao1998/X-Gaussian/) has been released. Welcome to have a try! 🚀
 - **2024.07.09 :** Our SAX-NeRF has been added to the [Awesome-Transformer-Attention](https://github.com/cmhungsteve/Awesome-Transformer-Attention/blob/main/README_2.md) collection 💫
 - **2024.06.16 :** I will present this work in person. Our poster session is from 10:30 am to 00:30 pm, Jun 20 at Arch 4A-E Poster #147. Welcome to chat with me in Seattle Convention Center. :satisfied:
@@ -72,6 +73,7 @@ This is a toolbox for X-ray novel view synthesis (NVS) and computed tomography (
 
 * [x] [SAX-NeRF](https://arxiv.org/abs/2311.10959) (CVPR 2024)
 * [x] [X-Gaussian](https://arxiv.org/abs/2403.04116) (ECCV 2024)
+* [x] [R2-Gaussian](https://arxiv.org/abs/2405.20693v1) (NeurIPS 2024)
 * [x] [TensoRF](https://arxiv.org/abs/2203.09517) (ECCV 2022)
 * [x] [NAF](https://arxiv.org/abs/2209.14540) (MICCAI 2022)
 * [x] [NeAT](https://arxiv.org/abs/2202.02171) (ACM TOG 2022)
@@ -238,6 +240,14 @@ If this repo helps you, please consider citing our works:
   title={Radiative gaussian splatting for efficient x-ray novel view synthesis},
   author={Yuanhao Cai and Yixun Liang and Jiahao Wang and Angtian Wang and Yulun Zhang and Xiaokang Yang and Zongwei Zhou and Alan Yuille},
   booktitle={ECCV},
+  year={2024}
+}
+
+# R2-Gaussian
+@inproceedings{r2_gaussian,
+  title={R2-Gaussian: Rectifying Radiative Gaussian Splatting for Tomographic Reconstruction},
+  author={Ruyi Zha and Tao Jun Lin and Yuanhao Cai and Jiwen Cao and Yanhao Zhang and Hongdong Li},
+  booktitle={NeurIPS},
   year={2024}
 }
 ```
