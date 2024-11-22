@@ -10,3 +10,4 @@ scikit-image==0.19.3
 imageio==2.25.1
 Pillow==9.5.0
 fvcore
+open3d==0.18.0
