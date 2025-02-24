@@ -104,6 +104,13 @@ We recommend using [Conda](https://docs.conda.io/en/latest/miniconda.html) to se
 conda create -n sax_nerf python=3.9
 conda activate sax_nerf
 
+# for users that don't have CUDA-11.3 on their server and
+# don't have sudo permission to install, please install CUDA-11.3 in conda environment
+# otherwise you can skip these steps
+conda install -c nvidia/label/cuda-11.3.1 cuda cudnn cuda-nvcc	# install CUDA-11.3 (and all needed pkg) for conda environment
+ln -s $CONDA_PREFIX/lib $CONDA_PREFIX/lib64	# softlink to solve a TIGRE version/path check issue
+conda install -c conda-forge gcc=10 gxx=10	# only support gcc <= 10
+
 # Install pytorch (hash encoder requires CUDA v11.3)
 pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --extra-index-url https://download.pytorch.org/whl/cu113
 
