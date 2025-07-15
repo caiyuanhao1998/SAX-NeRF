@@ -261,7 +261,7 @@ If this repo helps you, please consider citing our works:
 }
 
 # X2-Gaussian
-@inproceedings{yu2025x,
+@inproceedings{x2_gaussian,
   title={X2-Gaussian: 4D Radiative Gaussian Splatting for Continuous-time Tomographic Reconstruction},
   author={Yu, Weihao and Cai, Yuanhao and Zha, Ruyi and Fan, Zhiwen and Li, Chenxin and Yuan, Yixuan},
   booktitle={ICCV},
