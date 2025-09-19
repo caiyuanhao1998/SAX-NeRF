@@ -32,6 +32,7 @@ This repo is a comprehensive toolbox and library for X-ray 3D reconstruction inc
 
 
 ### News
+- **2025.09.18 :** Our new work [CARE](https://arxiv.org/abs/2506.02093) for diffusion based Anatomy-aware enhancement of sparse-view CT reconstruction has been accepted by NeurIPS 2025. Congrats to [Tianyu](https://lin-tianyu.github.io/). Code and models have been released at [this repo](https://github.com/MrGiovanni/CARE). 🍒
 - **2025.06.25 :** Our new work [X2-Gaussian](https://arxiv.org/abs/2503.21779) for dynamic human chest breathing CT reconstruction has been accepted by ICCV 2025. Congrats to [Weihao](https://yuyouxixi.github.io/). Code and models will be released at [this repo](https://github.com/yuyouxixi/x2-gaussian).  🚀
 - **2024.09.25 :** Our new work [R2-Gaussian](https://arxiv.org/abs/2405.20693v1) has been accepted by NeurIPS 2024. Congrats to [Ruyi](https://ruyi-zha.github.io/). Code and model will be released at [this repo](https://github.com/Ruyi-Zha/r2_gaussian). 💫 
 - **2024.09.01 :** Code of our ECCV 2024 work [X-Gaussian](https://github.com/caiyuanhao1998/X-Gaussian/) has been released. Welcome to have a try! 🚀
@@ -265,6 +266,14 @@ If this repo helps you, please consider citing our works:
   title={X2-Gaussian: 4D Radiative Gaussian Splatting for Continuous-time Tomographic Reconstruction},
   author={Yu, Weihao and Cai, Yuanhao and Zha, Ruyi and Fan, Zhiwen and Li, Chenxin and Yuan, Yixuan},
   booktitle={ICCV},
+  year={2025}
+}
+
+# CARE
+@inproceedings{lin2025pixel,
+  title={Are Pixel-Wise Metrics Reliable for Sparse-View Computed Tomography Reconstruction?},
+  author={Lin, Tianyu and Li, Xinran and Zhuang, Chuntung and Chen, Qi and Cai, Yuanhao and Ding, Kai and Yuille, Alan L and Zhou, Zongwei},
+  booktitle={NeurIPS},
   year={2025}
 }
 ```
