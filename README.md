@@ -77,6 +77,7 @@ This repo is a comprehensive toolbox and library for X-ray 3D reconstruction inc
 * [x] [X-Gaussian](https://arxiv.org/abs/2403.04116) (ECCV 2024)
 * [x] [R2-Gaussian](https://arxiv.org/abs/2405.20693v1) (NeurIPS 2024)
 * [x] [X2-Gaussian](https://arxiv.org/abs/2503.21779) (ICCV 2025)
+* [x] [CARE](https://arxiv.org/abs/2506.02093) (NeurIPS 2025)
 * [x] [TensoRF](https://arxiv.org/abs/2203.09517) (ECCV 2022)
 * [x] [NAF](https://arxiv.org/abs/2209.14540) (MICCAI 2022)
 * [x] [NeAT](https://arxiv.org/abs/2202.02171) (ACM TOG 2022)
