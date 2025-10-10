@@ -7,9 +7,7 @@
 [![zhihu](https://img.shields.io/badge/知乎-解读-179bd3)](https://zhuanlan.zhihu.com/p/702702109)
 [![Youtube](https://img.shields.io/badge/Youtube-video-179bd3)](https://www.youtube.com/watch?v=oVVUaBY61eo)
 
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/structure-aware-sparse-view-x-ray-3d/novel-view-synthesis-on-x3d)](https://paperswithcode.com/sota/novel-view-synthesis-on-x3d?p=structure-aware-sparse-view-x-ray-3d)
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/structure-aware-sparse-view-x-ray-3d/low-dose-x-ray-ct-reconstruction-on-x3d)](https://paperswithcode.com/sota/low-dose-x-ray-ct-reconstruction-on-x3d?p=structure-aware-sparse-view-x-ray-3d)
+&nbsp;
 
 <h2> A Toolbox for Sparse-View X-ray 3D Reconstruction </h2> 
 
