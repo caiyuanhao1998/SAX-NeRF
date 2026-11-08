@@ -145,7 +145,16 @@ python setup.py develop
 
 ## 2. Prepare Dataset:
 
-Download our processed datasets from [Google drive](https://drive.google.com/drive/folders/1SlneuSGkhk0nvwPjxxnpBCO59XhjGGJX?usp=sharing) or [Baidu disk](https://pan.baidu.com/s/18zc6jHeNvoUNAF6pUaL9eQ?pwd=cyh2). Then put the downloaded datasets into the folder `data/` as
+Download our processed datasets from [Google drive](https://drive.google.com/drive/folders/1SlneuSGkhk0nvwPjxxnpBCO59XhjGGJX?usp=sharing) or [Baidu disk](https://pan.baidu.com/s/18zc6jHeNvoUNAF6pUaL9eQ?pwd=cyh2). Put the downloaded datasets into `data/`.
+
+Alternatively, download the datasets from [Hugging Face](https://huggingface.co/datasets/CaiYuanhao/SAX-NeRF) using Git LFS. With [Git LFS](https://git-lfs.com/) installed, run these commands from the project root:
+
+```sh
+git lfs install
+git clone https://huggingface.co/datasets/CaiYuanhao/SAX-NeRF data
+```
+
+This places the processed `.pickle` files directly in `data/`, with the following layout:
 
 ```sh
   |--data
@@ -170,7 +179,17 @@ Download our processed datasets from [Google drive](https://drive.google.com/dri
 
 ## 3. Testing:
 
-You can directly download our pre-trained models from [Google drive](https://drive.google.com/drive/folders/1wlDrZQRbQENcfW1Pjrr1gasFQ8v6znHV?usp=sharing) or [Baidu disk](https://pan.baidu.com/s/1FlQJQRYJ7ApjCrxcTrF5mQ?pwd=cyh2). Then put the downloaded models into the folder `pretrained/` and run
+You can directly download our pre-trained models from [Google drive](https://drive.google.com/drive/folders/1wlDrZQRbQENcfW1Pjrr1gasFQ8v6znHV?usp=sharing) or [Baidu disk](https://pan.baidu.com/s/1FlQJQRYJ7ApjCrxcTrF5mQ?pwd=cyh2). Put the downloaded models into `pretrained/`.
+
+Alternatively, download the pretrained models from [Hugging Face](https://huggingface.co/CaiYuanhao/SAX-NeRF) using Git LFS. Run these commands from the project root:
+
+```sh
+git lfs install
+git clone https://huggingface.co/CaiYuanhao/SAX-NeRF pretrained
+```
+
+This places the scene checkpoints directly in `pretrained/`, including `pretrained/chest.tar`. With the dataset downloaded above, run:
+
 
 ```sh
 # SAX-NeRF
