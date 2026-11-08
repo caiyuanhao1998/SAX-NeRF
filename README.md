@@ -3,9 +3,12 @@
 <div align="center">
 <p align="center"> <img src="fig/logo.png" width="100px"> </p>
 
-[![arXiv](https://img.shields.io/badge/arxiv-paper-179bd3)](https://arxiv.org/abs/2311.10959)
-[![zhihu](https://img.shields.io/badge/知乎-解读-179bd3)](https://zhuanlan.zhihu.com/p/702702109)
-[![Youtube](https://img.shields.io/badge/Youtube-video-179bd3)](https://www.youtube.com/watch?v=oVVUaBY61eo)
+[![CVPR 2024](https://img.shields.io/badge/CVPR-2024-6295C5)](https://openaccess.thecvf.com/content/CVPR2024/html/Cai_Structure-Aware_Sparse-View_X-ray_3D_Reconstruction_CVPR_2024_paper.html)
+[![arXiv](https://img.shields.io/badge/arXiv-2311.10959-b31b1b)](https://arxiv.org/abs/2311.10959)
+[![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-ffd21e)](https://huggingface.co/datasets/CaiYuanhao/SAX-NeRF)
+[![Model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-ffd21e)](https://huggingface.co/CaiYuanhao/SAX-NeRF)
+[![Video](https://img.shields.io/badge/YouTube-Video-ff0000?logo=youtube)](https://www.youtube.com/watch?v=oVVUaBY61eo)
+[![知乎](https://img.shields.io/badge/知乎-解读-0084ff)](https://zhuanlan.zhihu.com/p/702702109)
 
 &nbsp;
 
