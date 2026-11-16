@@ -4,11 +4,12 @@
 <p align="center"> <img src="fig/logo.png" width="100px"> </p>
 
 [![CVPR 2024](https://img.shields.io/badge/CVPR-2024-6295C5)](https://openaccess.thecvf.com/content/CVPR2024/html/Cai_Structure-Aware_Sparse-View_X-ray_3D_Reconstruction_CVPR_2024_paper.html)
-[![知乎](https://img.shields.io/badge/知乎-中文解读-0084ff)](https://zhuanlan.zhihu.com/p/702702109)
-[![Video](https://img.shields.io/badge/YouTube-Video-ff0000?logo=youtube)](https://www.youtube.com/watch?v=oVVUaBY61eo)
 [![arXiv](https://img.shields.io/badge/arXiv-2311.10959-b31b1b)](https://arxiv.org/abs/2311.10959)
-[![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Dataset-yellow)](https://huggingface.co/datasets/CaiYuanhao/SAX-NeRF)
-[![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Model-yellow)](https://huggingface.co/CaiYuanhao/SAX-NeRF)
+[![Video](https://img.shields.io/badge/YouTube-Video-ff0000?logo=youtube)](https://www.youtube.com/watch?v=oVVUaBY61eo)
+[![知乎](https://img.shields.io/badge/知乎-中文解读-0084ff)](https://zhuanlan.zhihu.com/p/702702109)
+[![Project Page](https://img.shields.io/badge/Project-page-2EA44F)](https://caiyuanhao1998.github.io/project/SAX-NeRF/)
+[![HF Dataset](https://img.shields.io/badge/HF-Dataset-yellow?logo=huggingface)](https://huggingface.co/datasets/CaiYuanhao/SAX-NeRF)
+[![HF Model](https://img.shields.io/badge/HF-Model-yellow?logo=huggingface)](https://huggingface.co/CaiYuanhao/SAX-NeRF)
 
 
 &nbsp;
@@ -34,6 +35,7 @@ This repo is a comprehensive toolbox and library for X-ray 3D reconstruction inc
 
 
 ### News
+- **2026.11.15 :** We have launched our [project page](https://caiyuanhao1998.github.io/project/SAX-NeRF/), featuring CT reconstruction during optimization, [interactive CT volumes](https://caiyuanhao1998.github.io/project/SAX-NeRF/#interactive-ct), and [interactive X-ray viewers](https://caiyuanhao1998.github.io/project/SAX-NeRF/viewer/index.html?scene=head) for all 15 scenes. Welcome to explore! 🚀
 - **2026.11.07 :** We have released our datasets and models on HuggingFace 🤗
 - **2026.06.18 :** Our new work [Perturbed-Gaussian-Ensemble](https://arxiv.org/abs/2603.06852) for active learning 3DGS-based CT reconstruction has been accepted by ECCV 2026. Congrats to [Yulun](https://github.com/yulunwu0108/Perturbed-Gaussian-Ensemble). Code and models will be released at [this repo](https://github.com/yulunwu0108/Perturbed-Gaussian-Ensemble).  🚀
 - **2025.09.18 :** Our new work [CARE](https://arxiv.org/abs/2506.02093) for diffusion based Anatomy-aware enhancement of sparse-view CT reconstruction has been accepted by NeurIPS 2025. Congrats to [Tianyu](https://lin-tianyu.github.io/). Code and models have been released at [this repo](https://github.com/MrGiovanni/CARE). 🍒
