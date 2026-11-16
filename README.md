@@ -217,6 +217,9 @@ python3 eval_traditional.py --algorithm sart --category chest --config config/SA
 # ASD_POCS
 python3 eval_traditional.py --algorithm asd_pocs --category chest --config config/ASD_POCS/chest_50.yaml
 ```
+
+Optionally append `--export_mesh` to the SAX-NeRF testing command above to extract a mesh from the reconstructed CT and save it as `output/Lineformer/chest/volume.glb` (under the selected `--output_path`, method, and category); mesh export is disabled by default.
+
 For your convenience, we provide the reconstructed results in [Google drive](https://drive.google.com/drive/folders/1kKGHRrabdbKQeKBLxK5tj8VqVipEvOW5?usp=sharing) and [Baidu disk](https://pan.baidu.com/s/1_S9BRTthsf7y96cBIWTJmw?pwd=cyh2).
 
 &nbsp;

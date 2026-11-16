@@ -16,6 +16,8 @@ def config_parser():
     parser.add_argument("--weights", default=f"pretrained/chest.tar", help="path to the experiments")
     parser.add_argument("--output_path", default=f"output", help="path to the output folder")
     parser.add_argument("--vis", default="True", help="visualization or not?")
+    parser.add_argument("--export_mesh", action="store_true",
+                        help="also extract the reconstructed CT mesh as volume.glb (default: disabled)")
     return parser
 
 parser = config_parser()
@@ -120,6 +122,16 @@ def eval_step(eval_dset, model, model_fine, cfg):
         iio.imwrite(osp.join(ct_pred_dir_L, f"ct_pred_{str(i)}.png"), (cast_to_image(image_pred[...,i])*255).astype(np.uint8))
         iio.imwrite(osp.join(ct_gt_dir_L, f"ct_gt_{str(i)}.png"), (cast_to_image(image[...,i])*255).astype(np.uint8))
     
+    if args.export_mesh:
+        from src.utils.mesh import export_ct_mesh
+        mesh_path = osp.join(resdir, "volume.glb")
+        info = export_ct_mesh(
+            image_pred.detach().cpu().numpy(), mesh_path,
+            spacing=eval_dset.geo.dVoxel,
+            origin=eval_dset.voxels[0, 0, 0].detach().cpu().numpy(),
+        )
+        print(f"Mesh saved to {mesh_path}: {info['vertices']} vertices, {info['faces']} faces")
+
     print(loss)
 
     return
