@@ -79,10 +79,33 @@ class CTMeshTest(unittest.TestCase):
         self.assertTrue((counts == 2).all())
         np.testing.assert_array_equal(volume, np.ones_like(volume))
 
+    def test_signed_background_preserves_positive_isosurface_and_input(self):
+        # LeakyReLU checkpoints (e.g. Pelvis) can predict negative background.
+        volume = np.full((5, 7, 9), -1., dtype="f4")
+        volume[2, 3, 4] = 3.
+        snapshot = volume.copy()
+        spacing = np.array([.2, .3, .4])
+        origin = np.array([-.4, 1.2, 3.4])
+        center = origin + np.array([2, 3, 4]) * spacing
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "volume.glb"
+            info = export_ct_mesh(volume, path, spacing, origin)
+            vertices, normals, faces = read_glb(path)
+        # At level 1.5, interpolation from 3 to -1 crosses 0.375 voxels
+        # from the center. Clipping negatives to zero would change the surface.
+        center = center[[0, 2, 1]] * [1, 1, -1]
+        expected = center + np.array([-1, 1])[:, None] * (.375 * spacing[[0, 2, 1]])
+        np.testing.assert_allclose([vertices.min(0), vertices.max(0)], expected, atol=1e-6)
+        np.testing.assert_array_equal(volume, snapshot)
+        np.testing.assert_allclose(np.linalg.norm(normals, axis=1), 1, atol=1e-5)
+        self.assertEqual(info["level"], 1.5)
+        self.assertEqual((len(vertices), len(faces)), (6, 8))
+
     def test_invalid_fields_and_geometry_do_not_write_a_file(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "volume.glb"
             cases = [dict(volume=np.zeros((3, 3, 3))),
+                     dict(volume=-np.ones((3, 3, 3))),
                      dict(volume=np.full((3, 3, 3), np.nan)),
                      dict(volume=np.ones((1, 3, 3))),
                      dict(spacing=[1, 0, 1]), dict(origin=[0, np.inf, 0]),

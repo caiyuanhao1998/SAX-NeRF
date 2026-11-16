@@ -10,7 +10,9 @@ def export_ct_mesh(volume, output_path, spacing, origin, level=None):
     """Export a native-grid isosurface; spacing and voxel-center origin are in meters.
 
     The default level is half the peak radiodensity. A zero border closes surfaces
-    at the CT boundary. Native XYZ (Z up) is rotated to glTF XYZ (Y up).
+    at the CT boundary. Negative background predictions (e.g. from LeakyReLU)
+    are allowed; the extracted isosurface always has a positive radiodensity.
+    Native XYZ (Z up) is rotated to glTF XYZ (Y up).
     The input CT is never modified, smoothed, or resampled.
     """
     from skimage.measure import marching_cubes
@@ -23,8 +25,8 @@ def export_ct_mesh(volume, output_path, spacing, origin, level=None):
     origin = np.asarray(origin, dtype=np.float64)
     if volume.ndim != 3 or min(volume.shape) < 2:
         raise ValueError("Mesh export needs a 3D CT with at least two voxels per axis")
-    if not np.isfinite(volume).all() or volume.min() < 0 or volume.max() <= 0:
-        raise ValueError("Mesh export needs a finite, nonnegative, nonempty radiodensity field")
+    if not np.isfinite(volume).all() or volume.max() <= 0:
+        raise ValueError("Mesh export needs a finite radiodensity field with a positive peak")
     if spacing.shape != (3,) or not np.isfinite(spacing).all() or (spacing <= 0).any():
         raise ValueError("Voxel spacing must contain three positive finite values")
     if origin.shape != (3,) or not np.isfinite(origin).all():
