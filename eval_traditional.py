@@ -26,7 +26,7 @@ def config_parser():
                         help="path to the output folder")
     parser.add_argument("--nview", type=int, default=50,
                         help="the number of views in iterative algs")
-    parser.add_argument("--gpu_id", default="7", help="gpu to use")
+    parser.add_argument("--gpu_id", default="0", help="GPU index to use (default: 0)")
     return parser
 
 parser = config_parser()

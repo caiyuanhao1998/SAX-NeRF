@@ -119,19 +119,26 @@ The coordinate system in circular cone-beam X-ray scanning follows the OpenCV st
 
 ## 1. Create Environment:
 
-We recommend using [Conda](https://docs.conda.io/en/latest/miniconda.html) to set up an environment.
+We recommend using [Conda](https://docs.conda.io/en/latest/miniconda.html) to set up an environment. Run the commands below from the repository root. The CUDA toolchain commands install a compatible toolkit inside this environment; if you use an existing CUDA 11.3 installation instead, set `CUDA_HOME`, `CUDA_PATH`, and `PATH` to that installation.
 
 ``` sh
 # Create environment
 conda create -n sax_nerf python=3.9
 conda activate sax_nerf
 
-# for users that don't have CUDA-11.3 on their server and
-# don't have sudo permission to install, please install CUDA-11.3 in conda environment
-# otherwise you can skip these steps
-conda install -c nvidia/label/cuda-11.3.1 cuda cudnn cuda-nvcc	# install CUDA-11.3 (and all needed pkg) for conda environment
-ln -s $CONDA_PREFIX/lib $CONDA_PREFIX/lib64	# softlink to solve a TIGRE version/path check issue
-conda install -c conda-forge gcc=10 gxx=10	# only support gcc <= 10
+# Install CUDA 11.3 inside the Conda environment (no sudo required).
+# PyTorch includes its compatible cuDNN runtime; do not install an unpinned cudnn package.
+conda install -c nvidia/label/cuda-11.3.1 cuda=11.3.1 cuda-nvcc=11.3.122	# install CUDA-11.3 (and all needed pkg) for conda environment
+if [ ! -e "$CONDA_PREFIX/lib64" ]; then
+    ln -s "$CONDA_PREFIX/lib" "$CONDA_PREFIX/lib64"
+fi
+conda install -c conda-forge gcc=10 gxx=10 sysroot_linux-64=2.17	# CUDA 11.3 needs GCC <= 10 and compatible system headers
+
+# Use this toolkit even when another CUDA version is installed on the system.
+export CUDA_HOME="$CONDA_PREFIX"
+export CUDA_PATH="$CUDA_HOME"
+export PATH="$CUDA_HOME/bin:$PATH"
+export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$CUDA_HOME/lib:${LD_LIBRARY_PATH:-}"
 
 # Install pytorch (hash encoder requires CUDA v11.3)
 pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --extra-index-url https://download.pytorch.org/whl/cu113
@@ -151,7 +158,8 @@ rm v2.3.zip
 pip install cython==0.29.25
 pip install numpy==1.21.6
 cd TIGRE-2.3/Python/
-python setup.py develop
+python -m pip install --no-build-isolation .
+cd ../..
 ```
 
 &nbsp;
@@ -191,6 +199,8 @@ This places the processed `.pickle` files directly in `data/`, with the followin
 &nbsp;
 
 ## 3. Testing:
+
+Testing, training, and data generation use GPU 0 by default. Append `--gpu_id 1` (or another available index) to select a different GPU.
 
 You can directly download our pre-trained models from [Google drive](https://drive.google.com/drive/folders/1wlDrZQRbQENcfW1Pjrr1gasFQ8v6znHV?usp=sharing) or [Baidu disk](https://pan.baidu.com/s/1FlQJQRYJ7ApjCrxcTrF5mQ?pwd=cyh2). Put the downloaded models into `pretrained/`.
 
@@ -257,6 +267,7 @@ To render a cool demo, we provide visualization code in the folder `3D_vis`
 cd 3D_vis
 python 3D_vis_backpack.py
 python 3D_vis_backpack_gif.py
+cd ..
 ```
 
 &nbsp;
@@ -266,10 +277,12 @@ We also provide code for data generation in the folder `dataGenerator`. To give 
 
 ```sh
 cd dataGenerator
-python data_vis_backpack.py
+python data_vis_backpack.py --raw_path raw_data/backpack_512x512x373_uint16.raw
 cd ..
-python dataGenerator/generateData_backpack.py
+python dataGenerator/generateData_backpack.py --outputFolder ./generated_data --gpu_id 0
 ```
+
+The generated scene is saved to `generated_data/backpack_50.pickle`, leaving the downloaded datasets in `data/` intact.
 
 &nbsp;
 

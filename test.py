@@ -9,7 +9,7 @@ import time
 
 def config_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--gpu_id", default="6", help="gpu to use")
+    parser.add_argument("--gpu_id", default="0", help="GPU index to use (default: 0)")
     parser.add_argument("--method", default=f"Lineformer", help="name of the tested method")
     parser.add_argument("--category", default=f"chest", help="category of the tested scene")
     parser.add_argument("--config", default=f"config/Lineformer/chest_50.yaml", help="path to configs file")

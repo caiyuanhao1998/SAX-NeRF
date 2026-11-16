@@ -1,3 +1,5 @@
+numpy==1.21.6
+setuptools<81
 ninja==1.11.1
 opencv-python==4.7.0.68
 tensorboard==2.12.0

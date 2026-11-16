@@ -1,74 +1,38 @@
-'''
-    将两个原始数据加载并打印出来看看
-'''
+"""Convert the released Backpack raw CT into the MAT input used by the generator."""
+import argparse
+from pathlib import Path
 
-import scipy.io as io
-import numpy as np
-from pdb import set_trace as stx
-import cv2
 import imageio.v2 as iio
-import os
-
-category = 'backpack'
-
-raw_path = '/data2/cyh23/NAF_raw_data/backpack_512x512x373_uint16.raw'
-
-'''
-    统一把切片通道调整到最后一个维度
-    161 作通道 -> 失败
-    103 作通道 -> 失败
-
-    切片对不上的一个原因很可能是一开始 reshape 就 reshape 错了 (103, 94, 161) 是错的
-    有可能是 reshape 到 (161, 103, 94)
-'''
-
-raw_data = np.fromfile(raw_path, dtype='uint16')
-# stx()
-# raw_data_vis = raw_data.reshape(94, 161, 103)
-# raw_data_vis = raw_data.reshape(94, 103, 161)
-# raw_data_vis = raw_data.reshape(103, 161, 94)
-# raw_data_vis = np.swapaxes(raw_data.reshape(161, 94, 103), 1, 2)
-# raw_data_vis = raw_data.reshape(512, 512, 174)
-# raw_data_vis =  np.swapaxes(np.swapaxes(raw_data.reshape(174, 512, 512), 0, 1), 1, 2)
-# raw_data_vis = raw_data.reshape(256, 256, 512)
-raw_data_vis =  np.swapaxes(np.swapaxes(raw_data.reshape(373, 512, 512), 0, 1), 1, 2)
-# raw_data_vis =  raw_data.reshape(512, 512, 373)
-# stx()
-# raw_data_vis = np.swapaxes(raw_data.reshape(256, 128, 256), 1, 2)
-# raw_data_vis = raw_data.reshape(128, 256, 256)
-# raw_data_vis = raw_data.reshape(161, 103, 94)
-# raw_data_vis = np.swapaxes(np.swapaxes(raw_data.reshape(161, 103, 94), 0, 1), 1, 2)
-# raw_data_vis = raw_data.reshape(103, 94, 161)
-# raw_data_vis = np.swapaxes(raw_data.reshape(103, 94, 161), 1, 2)
-# raw_data_vis = np.swapaxes(np.swapaxes(raw_data.reshape(103, 94, 161), 0, 1), 1, 2)
-# raw_data_vis = np.swapaxes(np.swapaxes(raw_data.reshape(93, 341, 341), 0, 1), 1, 2)
-# raw_data_vis = raw_data.reshape(341, 93, 341)
-
-data_float = np.float32(raw_data_vis) / raw_data_vis.max()
-
-data_uint8 = np.uint8(data_float*255)
-
-show_slice = 50
-show_step = data_uint8.shape[-1]//show_slice
-show_image = data_uint8[...,::show_step]
+import numpy as np
+from scipy.io import savemat
 
 
+def main():
+    root = Path(__file__).resolve().parent
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--raw_path", type=Path,
+                        default=root / "raw_data/backpack_512x512x373_uint16.raw",
+                        help="path to the downloaded 512x512x373 uint16 raw CT")
+    parser.add_argument("--output_folder", type=Path, default=root,
+                        help="folder for CT_vis/backpack and raw_data/backpack/img.mat")
+    args = parser.parse_args()
+    raw = np.fromfile(args.raw_path, dtype=np.uint16)
+    expected = 512 * 512 * 373
+    if raw.size != expected:
+        raise ValueError(f"Expected {expected} uint16 values in {args.raw_path}, got {raw.size}")
+    volume = raw.reshape(373, 512, 512).transpose(1, 2, 0).astype(np.float32)
+    peak = float(volume.max())
+    if peak > 0:
+        volume /= peak
+    vis_dir = args.output_folder / "CT_vis/backpack"
+    vis_dir.mkdir(parents=True, exist_ok=True)
+    for index, z in enumerate(np.linspace(0, volume.shape[-1] - 1, 51, dtype=int)):
+        iio.imwrite(vis_dir / f"CT_raw_{index}.png", (volume[..., z] * 255).astype(np.uint8))
+    output = args.output_folder / "raw_data/backpack/img.mat"
+    output.parent.mkdir(parents=True, exist_ok=True)
+    savemat(output, {"img": volume})
+    print(f"Saved CT {volume.shape} to {output}")
 
-vis_dir = 'CT_vis/' + category + '/'
-os.makedirs(vis_dir, exist_ok=True)
 
-for i in range(show_slice+1):
-    iio.imwrite(vis_dir + 'CT_raw_'+str(i) + '.png', show_image[...,i])
-
-
-
-stx()
-
-img_data = data_float
-dict_data = dict()
-dict_data['img'] = img_data
-# stx()
-save_dir = 'raw_data/' + category + '/'
-os.makedirs(save_dir, exist_ok=True)
-io.savemat(save_dir+'img.mat', dict_data)
-
+if __name__ == "__main__":
+    main()

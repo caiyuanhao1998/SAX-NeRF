@@ -11,7 +11,7 @@ def config_parser():
     parser = argparse.ArgumentParser()
     # parser.add_argument("--config", default=f"./config/nerf/chest_50.yaml", help="configs file path")
     parser.add_argument("--config", default=f"./config/tensorf/chest_50.yaml", help="configs file path")
-    parser.add_argument("--gpu_id", default="5", help="gpu to use")
+    parser.add_argument("--gpu_id", default="0", help="GPU index to use (default: 0)")
     return parser
 
 parser = config_parser()

@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import os.path as osp
 import tigre
 from tigre.utilities.geometry import Geometry
@@ -17,10 +18,8 @@ import matplotlib.pyplot as plt
 import argparse
 import imageio.v2 as iio
 
-from pdb import set_trace as stx
 
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 
 def config_parser():
@@ -33,6 +32,7 @@ def config_parser():
                         help="folder of raw data")
     parser.add_argument("--outputFolder", default="./data", type=str,
                         help="folder of output data")
+    parser.add_argument("--gpu_id", default="0", help="GPU to use for projection generation")
     return parser
 
 
@@ -40,11 +40,12 @@ def main():
     parser = config_parser()
     args = parser.parse_args()
     dataType = args.ctName
-    dataFolder = args.dataFolder
+    os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu_id
+    dataFolder = str(Path(__file__).resolve().parent / args.dataFolder)
     outputName = args.outputName
     outputFolder = args.outputFolder
-    matPath = f"./dataGenerator/{dataFolder}/{dataType}/img.mat"
-    configPath = f"./dataGenerator/{dataFolder}/{dataType}/config.yml"
+    matPath = osp.join(dataFolder, dataType, "img.mat")
+    configPath = osp.join(dataFolder, dataType, "config.yml")
     outputPath = osp.join(outputFolder, f"{outputName}.pickle")
     generator(matPath, configPath, outputPath, dataFolder, dataType, True)
 
@@ -156,7 +157,6 @@ def loadImage(dirname, nVoxels, convert, rescale_slope, rescale_intercept, norma
     if normalize and image_min !=0 and image_max != 1:
         print("Normalize range to [0, 1]")
         image = (image - image_min) / (image_max - image_min)
-        # stx()
     return image
 
 
@@ -204,15 +204,14 @@ def generator(matPath, configPath, outputPath, dataFolder, dataType, show=False)
     else:
         data["val"]["projections"] = projections
 
-    if show or True:
-        save_dir_train_ct = osp.join('dataGenerator/', dataFolder, dataType, "show_vis_train_ct/")
-        save_dir_train_proj = osp.join('dataGenerator/', dataFolder, dataType, "show_vis_train_proj/")
-        save_dir_vali_proj = osp.join('dataGenerator/', dataFolder, dataType, "show_vis_vali_proj/")
+    if show:
+        save_dir_train_ct = osp.join(dataFolder, dataType, "show_vis_train_ct/")
+        save_dir_train_proj = osp.join(dataFolder, dataType, "show_vis_train_proj/")
+        save_dir_vali_proj = osp.join(dataFolder, dataType, "show_vis_vali_proj/")
 
         os.makedirs(save_dir_train_ct, exist_ok=True)
         os.makedirs(save_dir_train_proj, exist_ok=True)
         os.makedirs(save_dir_vali_proj, exist_ok=True)
-        # stx()
         '''
             img: [256, 256, 128]
             data["train"]["projections"]: 50, 512, 512
@@ -226,14 +225,12 @@ def generator(matPath, configPath, outputPath, dataFolder, dataType, show=False)
         show_dir_vali_proj  = data["val"]["projections"][::show_step,...]
         # show_image = np.concatenate(show_image, axis=0)
 
-        stx()
 
         for i in range(show_num):
             iio.imwrite(save_dir_train_ct+'CT_'+str(i)+'.png', (show_image_train_ct[...,i]*255).astype(np.uint8))
             iio.imwrite(save_dir_train_proj+'projs_'+str(i)+'.png', (show_dir_train_proj[i,...]*255).astype(np.uint8))
             iio.imwrite(save_dir_vali_proj+'projs_'+str(i)+'.png', (show_dir_vali_proj[i,...]*255).astype(np.uint8))
 
-        stx()
         # print("Save ct image")
         # tigre.plotimg(img.transpose((2,0,1)), dim="z")
         # print("Save training images")
