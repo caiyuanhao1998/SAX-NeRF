@@ -16,7 +16,7 @@ import time
 
 def config_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--config", default="config_github/FDK/chest_50.yaml",
+    parser.add_argument("--config", default="config/FDK/chest_50.yaml",
                         help="configs file path")
     parser.add_argument("--algorithm", default="fdk",
                         help="the algorithm to use for reconstruction")
