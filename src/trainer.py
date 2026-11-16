@@ -65,6 +65,9 @@ class Trainer:
             self.net_fine = network(encoder, **cfg["network"]).to(device)
             grad_vars += list(self.net_fine.parameters())
         
+        # Coarse and fine networks share the encoder; optimize each parameter once.
+        grad_vars = list(dict.fromkeys(grad_vars))
+
         # Optimizer，优化器及LR策略
         # optimizer = torch.optim.Adam(model.parameters(), lr=opt.learning_rate, betas=(0.9, 0.999))
         '''
@@ -108,14 +111,14 @@ class Trainer:
         def fmt_loss_str(losses):
             return "".join(", " + k + ": " + f"{losses[k].item():.4g}" for k in losses)
         iter_per_epoch = len(self.train_dloader)
-        pbar = tqdm(total= iter_per_epoch * self.epochs, leave=True)    # processing bar
+        pbar = tqdm(total=iter_per_epoch * (self.epochs + 1), leave=True)    # processing bar
         if self.epoch_start > 0:
             pbar.update(self.epoch_start*iter_per_epoch)        # 更新进度条
 
         for idx_epoch in range(self.epoch_start, self.epochs+1):
 
             # Evaluate
-            if (idx_epoch % self.i_eval == 0 or idx_epoch == self.epochs) and self.i_eval > 0:
+            if self.i_eval > 0 and (idx_epoch % self.i_eval == 0 or idx_epoch == self.epochs):
                 self.net.eval()             # self.net 和 self.net_fine 分别表示粗细网络
                 with torch.no_grad():
                     loss_test = self.eval_step(global_step=self.global_step, idx_epoch=idx_epoch)
@@ -137,7 +140,7 @@ class Trainer:
                 self.logger.info(f"epoch={idx_epoch}/{self.epochs}, loss={loss_train:.4g}, lr={self.optimizer.param_groups[0]['lr']:.4g}")
             
             # Save
-            if (idx_epoch % self.i_save == 0 or idx_epoch == self.epochs) and self.i_save > 0 and idx_epoch > 0:
+            if self.i_save > 0 and idx_epoch > 0 and (idx_epoch % self.i_save == 0 or idx_epoch == self.epochs):
                 if osp.exists(self.ckptdir):
                     copyfile(self.ckptdir, self.ckptdir_backup)
                 tqdm.write(f"[SAVE] epoch: {idx_epoch}/{self.epochs}, path: {self.ckptdir}")
