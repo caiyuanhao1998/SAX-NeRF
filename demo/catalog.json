@@ -1,0 +1,332 @@
+[
+  {
+    "id": "chest",
+    "name": "Chest",
+    "display_rotation": [
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        -1.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "mesh_threshold_fraction": 0.55
+  },
+  {
+    "id": "abdomen",
+    "name": "Abdomen",
+    "display_rotation": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        -1.0,
+        0.0
+      ]
+    ],
+    "mesh_threshold_fraction": 0.68
+  },
+  {
+    "id": "aneurism",
+    "name": "Aneurism",
+    "display_rotation": [
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "mesh_threshold_fraction": 0.3
+  },
+  {
+    "id": "backpack",
+    "name": "Backpack",
+    "display_rotation": [
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        -1.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "mesh_threshold_fraction": 0.4
+  },
+  {
+    "id": "bonsai",
+    "name": "Bonsai",
+    "display_rotation": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        -1.0,
+        0.0
+      ]
+    ],
+    "mesh_threshold_fraction": 0.3
+  },
+  {
+    "id": "box",
+    "name": "Box",
+    "display_rotation": [
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -1.0,
+        0.0
+      ]
+    ],
+    "mesh_threshold_fraction": 0.4
+  },
+  {
+    "id": "carp",
+    "name": "Carp",
+    "display_rotation": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        -1.0,
+        0.0
+      ]
+    ],
+    "mesh_threshold_fraction": 0.5
+  },
+  {
+    "id": "engine",
+    "name": "Engine",
+    "display_rotation": [
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        -1.0
+      ]
+    ],
+    "mesh_threshold_fraction": 0.31
+  },
+  {
+    "id": "foot",
+    "name": "Foot",
+    "display_rotation": [
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      [
+        -1.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "mesh_threshold_fraction": 0.45
+  },
+  {
+    "id": "head",
+    "name": "Head",
+    "display_rotation": [
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -1.0,
+        0.0
+      ]
+    ],
+    "mesh_threshold_fraction": 0.4
+  },
+  {
+    "id": "jaw",
+    "name": "Jaw",
+    "display_rotation": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        -1.0,
+        0.0
+      ]
+    ],
+    "mesh_threshold_fraction": 0.3
+  },
+  {
+    "id": "leg",
+    "name": "Leg",
+    "display_rotation": [
+      [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      [
+        0.0,
+        -1.0,
+        0.0
+      ]
+    ],
+    "mesh_threshold_fraction": 0.45
+  },
+  {
+    "id": "pancreas",
+    "name": "Pancreas",
+    "display_rotation": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        -1.0,
+        0.0
+      ]
+    ],
+    "mesh_threshold_fraction": 0.6
+  },
+  {
+    "id": "pelvis",
+    "name": "Pelvis",
+    "display_rotation": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        -1.0,
+        0.0
+      ]
+    ],
+    "mesh_threshold_fraction": 0.45
+  },
+  {
+    "id": "teapot",
+    "name": "Teapot",
+    "display_rotation": [
+      [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        -1.0
+      ]
+    ],
+    "mesh_threshold_fraction": 0.38
+  }
+]

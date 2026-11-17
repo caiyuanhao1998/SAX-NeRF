@@ -1,0 +1,3 @@
+fastapi>=0.110,<1
+uvicorn>=0.29,<1
+huggingface_hub>=0.33,<2

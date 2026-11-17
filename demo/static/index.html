@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>SAX-NeRF · Local Demo</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M10 7L30 33M30 7L10 33' stroke='%230d879e' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/style.css?v=4">
+  <script type="importmap">{"imports":{"three":"/static/vendor/three/three.module.js"}}</script>
+  <script type="module" src="/static/app.js?v=4"></script>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div class="brand">
+        <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M9 7L31 33M31 7L9 33" stroke="currentColor" stroke-width="2.3"/><ellipse cx="20" cy="20" rx="17" ry="7" transform="rotate(-30 20 20)" stroke="currentColor" opacity=".4"/><circle cx="20" cy="20" r="3.5" fill="currentColor"/></svg>
+        <div><h1>SAX-NeRF <span>· CVPR 2024</span></h1><p>Interactive X-ray &amp; CT exploration</p></div>
+      </div>
+      <div class="header-status">
+        <span class="local-badge" id="local-badge"><i></i> Local demo</span>
+        <div class="usage-counts" id="usage-counts" hidden aria-label="Successful uses" title="Successful user-requested X-ray renders and mesh exports; America/Los_Angeles. 30 days includes today and the preceding 29 dates.">
+          <span class="usage-chip"><span>Uses · 30 days</span><b id="usage-month">—</b></span>
+          <span class="usage-chip"><span>Today</span><b id="usage-today">—</b></span>
+        </div>
+      </div>
+    </header>
+
+    <section class="scene-selector" aria-label="Scene selection">
+      <span class="scene-label">Choose<br>a scene</span>
+      <div id="scene-gallery" class="scene-gallery" role="group" aria-label="Example scenes"></div>
+    </section>
+    <div class="scene-summary"><div><b id="scene-name">Head</b><span id="scene-info">SAX-NeRF reconstruction</span></div><div id="status" role="status" aria-live="polite">Starting local viewer…</div></div>
+
+    <div class="views-scroll">
+      <section class="views" aria-label="Three linked views">
+        <article class="card" id="mesh-card">
+          <div class="card-heading"><h2>CT Mesh</h2><span>Interactive</span></div>
+          <div class="viewport mesh-viewport" id="mesh-viewport">
+            <canvas id="mesh-canvas" aria-label="Interactive reconstructed CT mesh"></canvas>
+            <div class="viewport-loading" id="mesh-loading"><span class="spinner"></span><span>Preparing mesh…</span></div>
+            <div class="view-angle" id="view-angle">35° / 15°</div>
+            <button class="reset-view" id="reset-view" title="Reset camera" aria-label="Reset camera">↺</button>
+          </div>
+          <div class="card-controls">
+            <div class="control-line"><label class="check"><input id="show-plane" type="checkbox" checked> Slice plane</label><label class="opacity">Opacity <input id="mesh-opacity" type="range" min="0.08" max="1" step="0.02" value="0.38" aria-label="Mesh opacity"></label></div>
+            <p class="hint">Drag to rotate · Scroll to zoom<br>Drag the cyan handle to move the CT slice.</p>
+            <div class="card-foot"><span id="mesh-info">Reconstructed radiodensity surface</span><a id="mesh-download" class="text-link disabled" aria-disabled="true">Download mesh</a></div>
+          </div>
+        </article>
+
+        <article class="card" id="projection-card">
+          <div class="card-heading"><h2>X-ray Projection</h2><span>Neural rendering</span></div>
+          <div class="viewport image-viewport" id="projection-viewport">
+            <img id="projection-image" alt="X-ray projection rendered by SAX-NeRF" hidden>
+            <div class="viewport-loading" id="projection-loading"><span class="spinner"></span><span>Preparing projection…</span></div>
+          </div>
+          <div class="card-controls">
+            <div class="render-line"><button id="render-button" class="primary" disabled>Render X-ray projection</button><select id="resolution" aria-label="Projection resolution"><option>128</option><option selected>192</option><option>256</option><option>384</option><option>512</option></select></div>
+            <div class="control-line projection-settings"><label class="exposure">Exposure <input id="exposure" type="range" min="0.2" max="3" step="0.05" value="1" aria-label="X-ray exposure"></label><label class="check"><input id="invert" type="checkbox"> Invert</label></div>
+            <div class="card-foot"><span id="render-info">Rendered from the selected camera angle</span><a id="projection-download" class="text-link disabled" aria-disabled="true">Download .npy</a></div>
+          </div>
+        </article>
+
+        <article class="card" id="slice-card">
+          <div class="card-heading"><h2>CT Slice</h2><span>Linked to mesh</span></div>
+          <div class="viewport image-viewport" id="slice-viewport">
+            <img id="slice-image" alt="Slice of the SAX-NeRF reconstructed CT" hidden>
+            <div class="viewport-loading" id="slice-loading"><span class="spinner"></span><span>Preparing CT slice…</span></div>
+          </div>
+          <div class="card-controls">
+            <div class="axis-controls" role="group" aria-label="CT slice plane"><button data-axis="2" aria-pressed="false">Z plane</button><button data-axis="1" class="selected" aria-pressed="true">Y plane</button><button data-axis="0" aria-pressed="false">X plane</button></div>
+            <label class="slice-position"><span>Slice position</span><output id="slice-caption">— / —</output><input id="slice-position" type="range" min="0" max="255" value="128" step="1" aria-label="CT slice position" disabled></label>
+            <div class="card-foot"><span class="slice-hint">Scroll over the image to step through slices.</span><a id="slice-download" class="text-link disabled" aria-disabled="true">Download PNG</a></div>
+          </div>
+        </article>
+      </section>
+    </div>
+    <div class="error" id="error" role="alert" hidden><span></span><button id="retry">Try again</button></div>
+    <footer>Three views of the same SAX-NeRF reconstruction.<span>Mesh and CT slice stay linked as you explore.</span></footer>
+  </main>
+</body>
+</html>

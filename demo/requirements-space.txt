@@ -1,0 +1,10 @@
+torch==2.9.1
+spaces==0.51.3
+gradio==5.49.1
+huggingface_hub>=0.33.5,<1
+numpy==1.26.4
+Pillow>=10,<12
+PyYAML==6.0.3
+scipy==1.13.0
+scikit-image==0.23.2
+tqdm

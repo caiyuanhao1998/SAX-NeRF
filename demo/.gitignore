@@ -1,0 +1,5 @@
+cache
+__pycache__/
+local_config.json
+*.log
+hosted

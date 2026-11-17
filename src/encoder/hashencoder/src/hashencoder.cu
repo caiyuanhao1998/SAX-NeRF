@@ -390,7 +390,7 @@ void hash_encode_forward(const at::Tensor inputs, const at::Tensor embeddings, c
     CHECK_IS_FLOATING(dy_dx);
 
     AT_DISPATCH_FLOATING_TYPES_AND_HALF(
-    inputs.type(), "hash_encode_forward", ([&] {
+    inputs.scalar_type(), "hash_encode_forward", ([&] {
         hash_encode_forward_cuda<scalar_t>(inputs.data_ptr<scalar_t>(), embeddings.data_ptr<scalar_t>(), offsets.data_ptr<int>(), outputs.data_ptr<scalar_t>(), B, D, C, L, H, calc_grad_inputs, dy_dx.data_ptr<scalar_t>());
     }));
 }
@@ -421,7 +421,7 @@ void hash_encode_backward(const at::Tensor grad, const at::Tensor inputs, const 
     CHECK_IS_FLOATING(grad_inputs);
 
     AT_DISPATCH_FLOATING_TYPES_AND_HALF(
-    grad.type(), "hash_encode_backward", ([&] {
+    grad.scalar_type(), "hash_encode_backward", ([&] {
         hash_encode_backward_cuda<scalar_t>(grad.data_ptr<scalar_t>(), inputs.data_ptr<scalar_t>(), embeddings.data_ptr<scalar_t>(), offsets.data_ptr<int>(), grad_embeddings.data_ptr<scalar_t>(), B, D, C, L, H, calc_grad_inputs, dy_dx.data_ptr<scalar_t>(), grad_inputs.data_ptr<scalar_t>());
     }));
     

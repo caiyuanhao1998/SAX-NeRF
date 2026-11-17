@@ -8,6 +8,7 @@
 [![Video](https://img.shields.io/badge/YouTube-Video-ff0000?logo=youtube)](https://www.youtube.com/watch?v=oVVUaBY61eo)
 [![知乎](https://img.shields.io/badge/知乎-中文解读-0084ff)](https://zhuanlan.zhihu.com/p/702702109)
 [![Project Page](https://img.shields.io/badge/Project-page-2EA44F)](https://caiyuanhao1998.github.io/project/SAX-NeRF/)
+[![HF Demo](https://img.shields.io/badge/HF-Demo-yellow?logo=huggingface)](https://huggingface.co/spaces/CaiYuanhao/SAX-NeRF)
 [![HF Dataset](https://img.shields.io/badge/HF-Dataset-yellow?logo=huggingface)](https://huggingface.co/datasets/CaiYuanhao/SAX-NeRF)
 [![HF Model](https://img.shields.io/badge/HF-Model-yellow?logo=huggingface)](https://huggingface.co/CaiYuanhao/SAX-NeRF)
 
@@ -46,6 +47,7 @@ This repo is a comprehensive toolbox and library for X-ray 3D reconstruction inc
 <p align="center"><a href="https://caiyuanhao1998.github.io/project/SAX-NeRF/viewer/index.html?scene=carp"><img src="fig/meshes/carp-zoom85.png" width="19%" alt="Carp CT mesh reconstructed by SAX-NeRF" title="Carp: open interactive 3D X-ray viewer"></a><a href="https://caiyuanhao1998.github.io/project/SAX-NeRF/viewer/index.html?scene=backpack"><img src="fig/meshes/backpack-zoom85.png" width="19%" alt="Backpack CT mesh reconstructed by SAX-NeRF" title="Backpack: open interactive 3D X-ray viewer"></a><a href="https://caiyuanhao1998.github.io/project/SAX-NeRF/viewer/index.html?scene=box"><img src="fig/meshes/box-zoom85.png" width="19%" alt="Box CT mesh reconstructed by SAX-NeRF" title="Box: open interactive 3D X-ray viewer"></a><a href="https://caiyuanhao1998.github.io/project/SAX-NeRF/viewer/index.html?scene=engine"><img src="fig/meshes/engine-zoom85.png" width="19%" alt="Engine CT mesh reconstructed by SAX-NeRF" title="Engine: open interactive 3D X-ray viewer"></a><a href="https://caiyuanhao1998.github.io/project/SAX-NeRF/viewer/index.html?scene=teapot"><img src="fig/meshes/teapot-zoom85.png" width="19%" alt="Teapot CT mesh reconstructed by SAX-NeRF" title="Teapot: open interactive 3D X-ray viewer"></a></p>
 
 ### News
+- **2026.11.17 :** Our [interactive demo](https://huggingface.co/spaces/CaiYuanhao/SAX-NeRF) is now online! Explore all 15 scenes with linked CT meshes, neural X-ray projections, and CT slices. The same demo can also run locally. Welcome to try it! 🤗
 - **2026.11.15 :** We have launched our [project page](https://caiyuanhao1998.github.io/project/SAX-NeRF/), featuring CT reconstruction during optimization, [interactive CT volumes](https://caiyuanhao1998.github.io/project/SAX-NeRF/#interactive-ct), and [interactive X-ray viewers](https://caiyuanhao1998.github.io/project/SAX-NeRF/viewer/index.html?scene=head) for all 15 scenes. Welcome to explore! 🚀
 - **2026.11.07 :** We have released our datasets and models on HuggingFace 🤗
 - **2026.06.18 :** Our new work [Perturbed-Gaussian-Ensemble](https://arxiv.org/abs/2603.06852) for active learning 3DGS-based CT reconstruction has been accepted by ECCV 2026. Congrats to [Yulun](https://github.com/yulunwu0108/Perturbed-Gaussian-Ensemble). Code and models will be released at [this repo](https://github.com/yulunwu0108/Perturbed-Gaussian-Ensemble).  🚀
@@ -145,6 +147,9 @@ pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --e
 
 # Install other packages
 pip install -r requirements.txt
+
+# Install interactive demo dependencies
+pip install -r demo/requirements.txt
 ```
 
 We suggest you install TIGRE toolbox (2.3 version) for executing traditional CT reconstruction methods and synthesize your own CT data if you plan to do so. Please note that TIGRE v2.5 might stuck when CT is large.
@@ -202,6 +207,8 @@ This places the processed `.pickle` files directly in `data/`, with the followin
 
 Testing, training, and data generation use GPU 0 by default. Append `--gpu_id 1` (or another available index) to select a different GPU.
 
+### Prepare Pretrained Models
+
 You can directly download our pre-trained models from [Google drive](https://drive.google.com/drive/folders/1wlDrZQRbQENcfW1Pjrr1gasFQ8v6znHV?usp=sharing) or [Baidu disk](https://pan.baidu.com/s/1FlQJQRYJ7ApjCrxcTrF5mQ?pwd=cyh2). Put the downloaded models into `pretrained/`.
 
 Alternatively, download the pretrained models from [Hugging Face](https://huggingface.co/CaiYuanhao/SAX-NeRF) using Git LFS. Run these commands from the project root:
@@ -211,7 +218,23 @@ git lfs install
 git clone https://huggingface.co/CaiYuanhao/SAX-NeRF pretrained
 ```
 
-This places the scene checkpoints directly in `pretrained/`, including `pretrained/chest.tar`. With the dataset downloaded above, run:
+This places the scene checkpoints directly in `pretrained/`, including `pretrained/chest.tar`.
+
+### Interactive Demo
+
+Try the [online demo](https://huggingface.co/spaces/CaiYuanhao/SAX-NeRF), or run the same three-view interface locally:
+
+```sh
+python demo/run.py
+```
+
+Open http://127.0.0.1:7864. Click a scene thumbnail to explore its reconstructed CT mesh, render X-ray projections from the current viewing direction, and move the linked CT slice. All 15 scenes are supported; existing local data and models are reused, and missing files are downloaded automatically. See [demo/README.md](demo/README.md) for optional GPU, cache, and offline settings.
+
+[![SAX-NeRF interactive demo](fig/gradio_demo.png)](https://huggingface.co/spaces/CaiYuanhao/SAX-NeRF)
+
+### Run Testing
+
+With the dataset and checkpoint prepared, run:
 
 
 ```sh

@@ -1,9 +1,16 @@
 import os
-from torch.utils.cpp_extension import load
+import importlib
 
 _src_path = os.path.dirname(os.path.abspath(__file__))
 
-_backend = load(name='_hash_encoder',
+try:
+    # Hosted inference can install the same CUDA kernels as a prebuilt wheel.
+    _backend = importlib.import_module('_hash_encoder')
+except ModuleNotFoundError as error:
+    if error.name != '_hash_encoder':
+        raise
+    from torch.utils.cpp_extension import load
+    _backend = load(name='_hash_encoder',
                 extra_cflags=['-O3'], # '-std=c++17'
                 extra_cuda_cflags=[
                     '-O3',
