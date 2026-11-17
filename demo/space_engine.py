@@ -41,6 +41,7 @@ class SpaceEngine:
         if not manifest.is_file():
             raise FileNotFoundError(f"Hosted scene metadata is missing: {manifest}")
         document = json.loads(manifest.read_text())
+        self.volume_store = document.get("volume_store")
         self.scenes = {}
         for item in document["scenes"]:
             meta = copy.deepcopy(item)
@@ -92,6 +93,15 @@ class SpaceEngine:
         path = self.cache / meta["volume"]
         if not path.is_file():
             source = self.hosted / "volumes" / (scene + ".npy.gz")
+            if not source.is_file() and self.volume_store:
+                from huggingface_hub import hf_hub_download
+                store = self.volume_store
+                filename = store.get("path", "volumes").rstrip("/") + "/" + scene + ".npy.gz"
+                source = Path(hf_hub_download(
+                    repo_id=store["repo_id"], repo_type=store.get("repo_type", "dataset"),
+                    revision=store["revision"], filename=filename,
+                    cache_dir=str(self.cache / "hub"),
+                ))
             if not source.is_file():
                 raise FileNotFoundError(f"The native reconstructed CT is missing: {source}")
             temporary = self._temporary(path)

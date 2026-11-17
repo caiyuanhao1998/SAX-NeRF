@@ -102,7 +102,7 @@ in `static/vendor/three/LICENSE`.
 
 ## Hugging Face Space
 
-The Space uses `space_app.py` with Gradio and ZeroGPU. It serves the same three-view frontend as the local demo. Native float32 predicted CT arrays are stored losslessly for CPU slice browsing and mesh extraction; default X-rays are cached outputs of the neural renderer. New camera views call the original Lineformer network and CUDA hash encoder inside a short GPU allocation.
+The Space uses `space_app.py` with Gradio and ZeroGPU. It serves the same three-view frontend as the local demo. Native float32 predicted CT arrays are stored losslessly in a [dedicated demo asset dataset](https://huggingface.co/datasets/CaiYuanhao/SAX-NeRF-demo-assets) for CPU slice browsing and mesh extraction; default X-rays are cached outputs of the neural renderer. New camera views call the original Lineformer network and CUDA hash encoder inside a short GPU allocation.
 
 The top-right counters show successful manual X-ray renders and native mesh exports today and in the last 30 days, using America/Los_Angeles dates. Automatic previews, page refreshes and slice browsing do not count. Statistics persist in the private `CaiYuanhao/space-success-stats` dataset; configure its dedicated read/write Secret using `SPACE_STATS_TOKEN` or select an existing Secret name with `SPACE_STATS_TOKEN_NAME`. No usage token is included in source code or browser responses.
 
